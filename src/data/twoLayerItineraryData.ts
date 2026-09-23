@@ -116,7 +116,7 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
         category: 'spot',
         time: '15:30',
         name: '舊港口／碼頭 (Porto Vecchio)',
-        shortInfo: '湖畔石板路 · 彩色木船',
+        shortInfo: '湖畔石板路 · 彩色木船 · 碼頭廣場',
         hasDetail: true,
         detail: {
           subtitle: '加爾達湖歷史舊港口與湖岸步道',
@@ -132,21 +132,97 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
         category: 'spot',
         time: '16:15',
         name: 'Limonaia del Castèl',
-        shortInfo: '歷史梯田檸檬園景觀溫室',
+        shortInfo: '歷史梯田檸檬園景觀溫室 (門票 €2)',
         hasDetail: true,
         detail: {
           subtitle: '18 世紀古老梯田檸檬園與湖景制高點',
           hours: '10:00–18:00 (每日開放)',
-          ticket: '成人約 €2～3 (現場購票，可刷卡/現金)',
+          ticket: '成人票 €2～3，兒童 €1～2 (現場購票，可刷卡/現金)',
           duration: '建議停留 1 小時',
           address: 'Via Orti, 25010 Limone sul Garda BS, Italy',
           phone: '+39 0365 954720',
           description: '依陡峭山崖修築的多層梯田檸檬溫室。園內引水道精密，種滿黃澄澄檸檬與柑橘，頂層平台可俯瞰整座 Limone 小鎮紅瓦屋頂與加爾達湖全景。',
           mapQuery: 'Limonaia del Castel Limone sul Garda'
         }
+      },
+      {
+        id: '928-s3',
+        category: 'spot',
+        time: '17:15',
+        name: '中世紀老城區散步 ＆ 聖貝內代托教堂',
+        shortInfo: '碼頭 ➜ 檸檬園 ➜ 小巷 ➜ 教堂 ➜ 回廣場',
+        hasDetail: true,
+        detail: {
+          subtitle: '老城健步約 2.3 km (約 33 分鐘，停留約 1.5～2 小時)',
+          hours: '教堂開放時間 09:00–18:00',
+          address: 'Piazza Don Angelo Ghezzi, 25010 Limone sul Garda BS, Italy',
+          description: '穿梭在 Limone 的中世紀石板窄巷與石階梯間，走訪聖貝內代托教堂 (Chiesa di San Benedetto)，隨後漫步返回湖畔廣場。',
+          mapQuery: 'Chiesa di San Benedetto Limone sul Garda'
+        }
       }
     ],
-    foodItems: [],
+    foodItems: [
+      {
+        id: '928-f1',
+        category: 'food',
+        time: '16:45',
+        name: 'LB GELATERIA 義式冰淇淋',
+        shortInfo: '檸檬特色冰淇淋 · 湖畔必嚐甜品',
+        hasDetail: true,
+        detail: {
+          subtitle: '小鎮人氣義式冰淇淋 (Gelateria)',
+          address: 'Via IV Novembre, 32, 25010 Limone sul Garda BS, Italy',
+          description: '推薦 Limone 當地特產新鮮檸檬口味冰淇淋（同場亦推薦 Gelateria Qciari / Gelateria L\'Aura），酸甜沁涼。',
+          mapQuery: 'LB Gelateria Limone sul Garda'
+        }
+      },
+      {
+        id: '928-f2',
+        category: 'food',
+        time: '18:00',
+        name: 'TURISTA PIZZERIA 披薩屋',
+        shortInfo: '經典義大利窯烤披薩 · 湖畔小鎮風味',
+        hasDetail: true,
+        detail: {
+          subtitle: '老城平價人氣披薩館',
+          hours: '07:00–22:00',
+          address: 'Via IV Novembre, 50, 25010 Limone sul Garda BS, Italy',
+          description: '提供現烤薄皮義式披薩、義大利麵與冷熱飲品，位置便利鄰近老街。',
+          mapQuery: 'Turista Pizzeria Limone sul Garda'
+        }
+      },
+      {
+        id: '928-f3',
+        category: 'food',
+        time: '19:00',
+        name: 'Ristorante Gemma 湖畔餐廳',
+        shortInfo: '加爾達湖海鮮 · 手工義大利麵 · 露天湖景',
+        hasDetail: true,
+        detail: {
+          subtitle: 'Garibaldi 廣場湖畔精緻海鮮義式料理',
+          hours: '11:30–14:30 / 18:30–21:30',
+          phone: '+39 0365 954014',
+          address: 'Piazza Garibaldi 11, 25010 Limone sul Garda BS, Italy',
+          description: '臨湖露天景觀餐廳，供應新鮮加爾達湖魚、亞得里亞海海鮮燉飯與手工義大利麵，伴隨微風享受加爾達湖第一晚。',
+          mapQuery: 'Ristorante Gemma Limone sul Garda'
+        }
+      },
+      {
+        id: '928-f4',
+        category: 'food',
+        time: '17:45',
+        name: 'Margherita Conad 瑪格麗特超市',
+        shortInfo: '採買礦泉水、水果零食與飲料 (建議17:00前)',
+        hasDetail: true,
+        detail: {
+          subtitle: 'Limone 老城生鮮超市補給',
+          hours: '07:30–19:30',
+          address: 'Via IV Novembre 13, 25010 Limone sul Garda BS, Italy',
+          description: '回飯店前採買大瓶礦泉水、新鮮水果、優格與義大利餅乾，建議提早於 17:00 前採買以免人潮擁擠。',
+          mapQuery: 'Margherita Conad Limone sul Garda'
+        }
+      }
+    ],
     hotelItems: [
       {
         id: '928-h1',
@@ -196,15 +272,15 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
         id: '929-t1',
         category: 'traffic',
         time: '11:00',
-        name: '加爾達湖渡輪跨湖',
-        shortInfo: 'Limone ➜ Malcesine｜航程約 20 分鐘',
+        name: '加爾達湖渡輪跨湖 (Garda Express)',
+        shortInfo: 'Limone ➜ Malcesine｜來回 €15 · 航程約 25 分',
         hasDetail: true,
         detail: {
-          subtitle: '橫渡加爾達湖水心巡航',
-          hours: '08:00–19:30 (每 30–60 分鐘一班)',
-          ticket: '往返船票約 €9～12/成人 (碼頭售票亭隨到隨買)',
-          address: 'Porto di Limone, Lungolago Marconi, Limone sul Garda',
-          description: '由 Limone 碼頭登船橫渡加爾達湖最壯闊湖段。從湖面上回望 Limone 的陡峭岩壁與檸檬梯田，迎向對岸矗立水畔的 Malcesine 古堡。',
+          subtitle: '橫渡加爾達湖水心巡航 (Garda Express)',
+          hours: '去程 10:00 起約每小時一班；回程可搭 18:05 班次',
+          ticket: '來回票 €15 / 人 (Limone Centro 碼頭購票)',
+          address: 'Porto di Limone Centro, Lungolago Marconi, Limone sul Garda',
+          description: '由 Limone Centro 碼頭搭乘 Garda Express 橫渡加爾達湖最壯闊湖段。從湖面上回望 Limone 的陡峭岩壁與檸檬梯田，迎向對岸矗立水畔的 Malcesine 古堡。',
           mapQuery: 'Porto di Limone sul Garda'
         }
       },
@@ -212,31 +288,32 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
         id: '929-t2',
         category: 'traffic',
         time: '11:45',
-        name: '巴爾多山 360° 旋轉纜車',
-        shortInfo: '直上海拔 1,760m 阿爾卑斯觀景台',
+        name: '巴爾多山 360° 旋轉纜車 (Monte Baldo)',
+        shortInfo: '直上海拔 1,760m｜線上預約 €28 · 現場 €30',
         hasDetail: true,
         detail: {
-          subtitle: 'Funivia Malcesine-Monte Baldo 全景旋轉吊廂',
-          hours: '08:00–18:45 (末班下山纜車約 19:00)',
-          ticket: '往返票約 €25～27/成人 (支援現場刷卡)',
+          subtitle: 'Funivia Malcesine-Monte Baldo 全景 360° 自轉吊廂',
+          hours: '08:15 起營運，末班上山 18:00 / 最後下山 18:45',
+          ticket: '來回票：線上預約 €28 / 現場 €30 (Junior 兒童線上 €16 / 現場 €18；身高 1.2m 以下免費)',
           phone: '+39 045 740 0206',
-          address: 'Via Navene Vecchia 10, 37018 Malcesine VR, Italy',
+          address: 'Via Navene Vecchia 12, 37018 Malcesine VR, Italy',
+          parking: '設有地下收費停車場；旺季建議提前線上購票避開排隊',
           description: '從 Malcesine 搭乘兩段纜車登頂。第二段為世界首創 360 度自轉全景吊廂，全方位無死角俯瞰整個加爾達湖長條壯闊水域與連綿山脈。',
-          notice: '山頂海拔高風勢大，氣溫比湖面低約 8～10°C，務必帶防風保暖外套。',
+          notice: '山頂海拔高風勢大，氣溫比湖面低約 8～10°C，務必備妥防風保暖外套。',
           mapQuery: 'Funivia Malcesine Monte Baldo'
         }
       },
       {
         id: '929-t3',
         category: 'traffic',
-        time: '17:00',
+        time: '17:30',
         name: '渡輪返回 Limone',
-        shortInfo: 'Malcesine ➜ Limone｜航程約 20 分鐘',
+        shortInfo: 'Malcesine ➜ Limone｜可搭 18:05 班次 · 航程約 25 分',
         hasDetail: true,
         detail: {
           subtitle: '搭乘跨湖渡輪返程',
           address: 'Porto di Malcesine, 37018 Malcesine VR, Italy',
-          description: '於 Malcesine 碼頭憑往返票搭船返回 Limone。夕陽斜射下的湖面金光粼粼。',
+          description: '於 Malcesine 碼頭憑往返票搭船返回 Limone（末班船前後可搭 18:05 班次）。夕陽斜射下的湖面金光粼粼。',
           mapQuery: 'Porto di Malcesine'
         }
       }
@@ -247,15 +324,15 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
         category: 'spot',
         time: '09:15',
         name: 'Ciclopedonale del Garda',
-        shortInfo: '加爾達湖懸空單車水上木棧道',
+        shortInfo: '加爾達湖水上懸空木棧道',
         hasDetail: true,
         detail: {
-          subtitle: '全球最美懸空步道 · 依傍垂直石灰岩壁',
-          hours: '全天免費開放',
+          subtitle: '懸空木棧道 (全長約 2.5 km)',
+          hours: '全天開放',
           duration: '停留約 1.5 小時 (全長約 2.5 km)',
           address: 'SS45bis, 25010 Limone sul Garda BS, Italy',
           parking: 'Parcheggio Capo Reamol (收費停車場，車位有限建議早到)',
-          description: '被譽為歐洲最震撼的水上懸空木棧道。棧道鋼構固定於垂直石灰岩壁上，腳下即是深邃透明的碧綠湖水，視野無比開闊。',
+          description: '木棧道鋼構固定於湖畔岩壁上，沿湖岸延伸約 2.5 km，可漫步欣賞加爾達湖景色。',
           mapQuery: 'Ciclopedonale del Garda Limone sul Garda'
         }
       },
@@ -278,20 +355,63 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
         category: 'spot',
         time: '15:15',
         name: 'Castello Scaligero (斯卡利傑城堡)',
-        shortInfo: '湖畔中世紀古堡 · 登頂全景',
+        shortInfo: '湖畔中世紀古堡 · 登頂 360° 湖景 (門票 €7)',
         hasDetail: true,
         detail: {
           subtitle: 'Malcesine 歷史水岸城堡地標',
-          hours: '09:30–18:30',
-          ticket: '成人約 €6',
+          hours: '每日 09:30–18:30 (旺季可能延至 19:30)',
+          ticket: '成人 €7，兒童 (6-13歲) €3，6歲以下免費',
           duration: '停留約 1 小時',
-          address: 'Via Castello, 37018 Malcesine VR, Italy',
-          description: '矗立在加爾達湖岬角上的中世紀城堡，歌德曾在此駐足素描。登上最高塔樓可將古城紅瓦與蔚藍湖水盡收眼底。',
+          address: 'Via Castello 1, 37018 Malcesine VR, Italy',
+          description: '矗立在加爾達湖岬角上的中世紀要塞城堡，歌德曾在此駐足素描。登上最高塔樓可將古城紅瓦與蔚藍湖水盡收眼底。',
           mapQuery: 'Castello Scaligero Malcesine'
+        }
+      },
+      {
+        id: '929-s4',
+        category: 'spot',
+        time: '16:30',
+        name: 'Malcesine 湖畔步道散步 ＆ 日落漫步',
+        shortInfo: '中世紀石板小巷 ➜ 湖畔步道',
+        hasDetail: true,
+        detail: {
+          subtitle: '中世紀小巷漫步與湖岸日落風光',
+          duration: '停留約 45 分鐘',
+          address: 'Lungolago di Malcesine, 37018 Malcesine VR, Italy',
+          description: '沿著 Malcesine 水岸步道悠閒漫步，欣賞金黃落日灑落加爾達湖面。',
+          mapQuery: 'Lungolago Malcesine'
+        }
+      },
+      {
+        id: '929-s5',
+        category: 'spot',
+        time: '16:45',
+        name: 'DATCH MALCESINE 時裝精品店',
+        shortInfo: '老城特色服飾精品店 · 散步逛街',
+        hasDetail: true,
+        detail: {
+          subtitle: '義大利風格男女服飾選品',
+          address: 'Via Navene 25, 37018 Malcesine VR, Italy',
+          description: '位於 Malcesine 老城區熱鬧街道上的義式休閒時裝店，適合順路逛街尋寶。',
+          mapQuery: 'Datch Malcesine'
         }
       }
     ],
-    foodItems: [],
+    foodItems: [
+      {
+        id: '929-f1',
+        category: 'food',
+        time: '13:30',
+        name: 'Malcesine 湖畔景觀午餐 / 咖啡',
+        shortInfo: '小鎮義大利麵 · 披薩 · 湖畔咖啡座',
+        hasDetail: true,
+        detail: {
+          subtitle: '下山後於 Malcesine 老城悠閒享用午餐',
+          description: '下山後在斯卡利傑城堡旁或老城石板巷弄挑選戶外露天座位，品嚐手工千層麵、生火腿披薩與特調義式濃縮咖啡。',
+          mapQuery: 'Ristorante Malcesine'
+        }
+      }
+    ],
     hotelItems: [
       {
         id: '929-h1',
@@ -353,42 +473,44 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
         id: '930-t2',
         category: 'traffic',
         time: '11:00',
-        name: 'WaltherPark 停車',
-        shortInfo: '現代化地下停車場 (避開 ZTL)',
+        name: 'WaltherPark 停車場 (避開 ZTL)',
+        shortInfo: 'Walther Tunnel 入口 ➜ 圓環右轉下 B2',
         hasDetail: true,
         detail: {
-          subtitle: '波札諾市中心智慧地下停車場',
-          address: 'Via Stazione 1, 39100 Bolzano BZ, Italy',
-          description: '車輛直接停入 WaltherPark 地下停車場，搭乘電梯上至地面步行 3 分鐘即達瓦爾特廣場與主教座堂，安全避開老城拍照 ZTL。',
-          mapQuery: 'Parking WaltherPark Bolzano'
+          subtitle: '波札諾智慧地下停車場 (避開老城 ZTL 攝影機)',
+          address: 'Piazzetta Alto Adige 1, 39100 Bolzano BZ, Italy',
+          description: '導航設為 Walther Tunnel，由 Via Josef Mayr Nusser 進入隧道後依 WaltherPark Parking 指標右轉直下 B2 車庫。注意：切勿走 Via Alto Adige (該處有 ZTL 執法攝影機)！',
+          mapQuery: 'WaltherPark Parking Bolzano'
         }
       },
       {
         id: '930-t3',
         category: 'traffic',
         time: '14:00',
-        name: 'Esselunga 超市採買補給',
-        shortInfo: '波札諾大型超市 · 水果零食乾糧補給',
+        name: 'ESSELUNGA 超市採買補給',
+        shortInfo: 'WaltherPark 內 · 消費滿 €50 折抵 1 小時停車',
         hasDetail: true,
         detail: {
           subtitle: '上休斯高原前的大型生鮮超市',
-          duration: '約 30 分鐘',
-          address: 'Via Galileo Galilei 20, 39100 Bolzano BZ, Italy',
-          description: '在進入高山自然保護區前，前往 Esselunga 大型超市採買隨身高山健行水果、堅果零食、礦泉水與隨身飲料。',
-          mapQuery: 'Esselunga Bolzano'
+          hours: '週一至週六 08:00–21:00',
+          address: 'Piazza Alto Adige 1, 39100 Bolzano BZ, Italy',
+          description: '在 WaltherPark 內的 ESSELUNGA 超市採買高山水果、堅果零食、大瓶礦泉水。超市消費滿 €50 可折抵 1 小時停車費。',
+          mapQuery: 'Esselunga Bolzano WaltherPark'
         }
       },
       {
         id: '930-t4',
         category: 'traffic',
         time: '14:45',
-        name: '自駕加油',
-        shortInfo: '上山前加滿油箱 (ENI / Q8 加油站)',
+        name: 'ESSO 加油站 (上山前加滿油箱)',
+        shortInfo: 'Distributore Esso · Via Innsbruck 15',
         hasDetail: true,
         detail: {
-          subtitle: '休斯高原山路行駛前油料補滿',
-          description: '在出波札諾市區或前往 Castelrotto 途中加油站將油箱加滿，確保高山行程油料充裕。',
-          mapQuery: 'Gas Station Bolzano'
+          subtitle: '休斯高原山路行駛前油料加滿',
+          hours: '07:00–19:00',
+          address: 'Via Innsbruck 15, 39100 Bolzano BZ, Italy',
+          description: '出波爾札諾市區上山前將車輛油箱加滿，確保高山行程油料充裕。',
+          mapQuery: 'Esso Via Innsbruck Bolzano'
         }
       },
       {
@@ -396,12 +518,12 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
         category: 'traffic',
         time: '15:15',
         name: '開車前往休斯高原 Hotel Santner',
-        shortInfo: '約 35 km｜盤山路約 50 分鐘',
+        shortInfo: '約 43 km｜盤山路約 1 小時 10 分 · 憑特許通行',
         hasDetail: true,
         detail: {
           subtitle: '盤山公路進入休斯高原自然保護區',
-          duration: '約 35 km (約 50 分鐘)',
-          description: '經 Castelrotto 上山。休斯高原每日 09:00–17:00 管制外來車輛，但已預訂 Hotel Santner，飯店已通報車號，出示訂房單即可在管制閘門通行直達地下車庫！',
+          duration: '約 43 km (約 1 小時 10 分)',
+          description: '經 Castelrotto 上山。休斯高原日間管制外來車輛，但已預訂 Hotel Santner，車牌已由飯店通報特許，出示訂房確認信在管制閘門通行直達地下車庫！',
           parking: 'Hotel Santner 免費地下車庫',
           mapQuery: 'Hotel Santner Alpine Sport & Relax Alpe di Siusi'
         }
@@ -411,9 +533,23 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
       {
         id: '930-s1',
         category: 'spot',
+        time: '11:15',
+        name: '波爾札諾主教座堂 (Duomo di Bolzano)',
+        shortInfo: '綠金花磚哥德式教堂 · 歷史地標',
+        hasDetail: true,
+        detail: {
+          subtitle: '聖母升天主教座堂 (14–15 世紀瑰寶)',
+          address: 'Piazza della Parrocchia 27, 39100 Bolzano BZ, Italy',
+          description: '擁有標誌性菱形花紋彩瓷瓦屋頂與 65 公尺高鏤空哥德鐘樓，內部莊嚴典雅。',
+          mapQuery: 'Duomo di Bolzano'
+        }
+      },
+      {
+        id: '930-s2',
+        category: 'spot',
         time: '11:45',
         name: 'Piazza Walther (瓦爾特廣場)',
-        shortInfo: '南蒂羅爾核心客廳 · 瓦爾特雕像',
+        shortInfo: '南蒂羅爾核心客廳 · 瓦爾特詩人雕像',
         hasDetail: true,
         detail: {
           subtitle: '融合德義風情的波札諾歷史心臟',
@@ -422,9 +558,68 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
           description: '廣場佇立著中世紀德語詩人瓦爾特（Walther von der Vogelweide）大理石雕像，氣氛悠閒典雅。',
           mapQuery: 'Piazza Walther Bolzano'
         }
+      },
+      {
+        id: '930-s3',
+        category: 'spot',
+        time: '12:15',
+        name: '拱廊街 VIA DEI PORTICI ＆ Tschager Art',
+        shortInfo: '800 年歷史拱廊街 · 南蒂羅爾藝術工藝',
+        hasDetail: true,
+        detail: {
+          subtitle: 'Laubengasse 連綿拱廊街漫步',
+          address: 'Via dei Portici 2, 39100 Bolzano BZ, Italy (Tschager Art)',
+          description: '漫步於中世紀連綿拱廊街，精緻櫥窗林立。走訪 Tschager Art 欣賞傳統南蒂羅爾木雕與工藝品。',
+          mapQuery: 'Via dei Portici Bolzano'
+        }
+      },
+      {
+        id: '930-s4',
+        category: 'spot',
+        time: '12:45',
+        name: '香草市集 PIAZZA DELLE ERBE (Obstplatz)',
+        shortInfo: '熱鬧蔬果香草市集 · 海王星噴泉',
+        hasDetail: true,
+        detail: {
+          subtitle: '每日生鮮與香草乾酪市集',
+          hours: '07:00–19:00 (週六至 13:00，週日休市)',
+          address: 'Piazza delle Erbe, 39100 Bolzano BZ, Italy',
+          description: '擺滿新鮮阿爾卑斯蘋果、無花果、特產火腿與乾酪的傳統露天市集，充滿生活氣息。',
+          mapQuery: 'Piazza delle Erbe Bolzano'
+        }
       }
     ],
-    foodItems: [],
+    foodItems: [
+      {
+        id: '930-f1',
+        category: 'food',
+        time: '12:00',
+        name: 'Loacker Café 威化甜點店',
+        shortInfo: '瓦爾特廣場經典點心 · 熱可可與脆餅',
+        hasDetail: true,
+        detail: {
+          subtitle: '世界知名義大利威化餅品牌專門店',
+          address: 'Piazza Walther 11, 39100 Bolzano BZ, Italy',
+          description: '坐落於瓦爾特廣場邊，提供香濃熱巧克力、義式咖啡與各式剛出爐的手工威化甜品。',
+          mapQuery: 'Loacker Cafe Bolzano Piazza Walther'
+        }
+      },
+      {
+        id: '930-f2',
+        category: 'food',
+        time: '13:00',
+        name: 'Torgglhaus 傳統餐廳 (午餐)',
+        shortInfo: '南蒂羅爾鄉村料理 · 義大利菜 · 柴燒披薩',
+        hasDetail: true,
+        detail: {
+          subtitle: '波札諾老城著名歷史餐館',
+          hours: '11:30–22:00',
+          address: 'Via Museo 2/A, 39100 Bolzano BZ, Italy',
+          description: '供應道地南蒂羅爾 Knödel 麵丸子、烤豬膝、煙燻火腿拼盤與現烤脆皮披薩，份量扎實美味。',
+          mapQuery: 'Torgglhaus Bolzano'
+        }
+      }
+    ],
     hotelItems: [
       {
         id: '930-h1',
@@ -501,34 +696,50 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
         id: '101-s1',
         category: 'spot',
         time: '09:30',
-        name: '30號步道 / Hans & Paula Steger Trail',
-        shortInfo: '歐洲最大高山草原 · 仙境牧場畫卷',
+        name: '休斯高原輕鬆健走環線 (3.6 km · 約 50 分)',
+        shortInfo: 'Hotel Santner ➜ 全景點 ➜ Constrin ➜ Sanon ➜ Compatsch',
         hasDetail: true,
         detail: {
-          subtitle: '平緩起伏的阿爾卑斯綠毯與古老木穀倉',
-          duration: '健行約 2 小時 (難度低，平緩好走)',
-          ticket: '全線免費開放',
-          address: 'Compatsch, 39040 Alpe di Siusi BZ, Italy',
-          description: '自飯店出發沿 30 號步道（Hans & Paula Steger Trail），兩側盡是翠綠起伏的高山牧草地、放牧牛鈴與阿爾卑斯古老木造穀倉。遠方施盧恩峰（Schlern）如巨大石壁屏障矗立眼前。',
-          mapQuery: 'Hans and Paula Steger Trail Alpe di Siusi'
+          subtitle: '歐洲最大高山草原經典平緩健行路線',
+          duration: '約 2 小時 (含拍照與休息)',
+          ticket: '步道全線免費開放',
+          address: 'Alpe di Siusi, 39040 BZ, Italy',
+          description: '自 Hotel Santner 徒步出發，經高原全景拍照點、Constrin 山屋，漫步至風景如畫的 Sanon 山屋，最後經 Compatsch 環狀返回。沿途藍天白雲、翠綠草甸與放牧牛群。',
+          mapQuery: 'Compatsch Alpe di Siusi'
         }
       },
       {
         id: '101-s2',
         category: 'spot',
-        time: '14:00',
-        name: 'Panorama / Mont Piz 全景步道',
-        shortInfo: '360° 多洛米蒂群山 · 直面 Sassolungo 巨石',
+        time: '14:30',
+        name: 'Panorama / Col Raiser 景觀遠眺',
+        shortInfo: '看 Odle 鋸齒峰與施盧恩峰 (Schlern)',
         hasDetail: true,
         detail: {
-          subtitle: '明信片級全景草甸環狀步道',
-          duration: '步行約 1.5 小時',
-          description: '沿起伏平緩的 Panorama / Mont Piz 全景步道悠閒漫步。空氣甘洌，牛鈴清脆，可盡情拍攝如畫的草原山屋與多洛米蒂雪峰壯景。',
+          subtitle: '360° 多洛米蒂群山環繞視野',
+          duration: '散步約 1.5 小時',
+          description: '午後在飯店周邊 Panorama 步道漫步，或遠眺對面 Col Raiser 及 Odle 鋸齒奇峰，享受高山純淨空氣與寧靜草原。',
           mapQuery: 'Panorama Alpe di Siusi'
         }
       }
     ],
-    foodItems: [],
+    foodItems: [
+      {
+        id: '101-f1',
+        category: 'food',
+        time: '11:30',
+        name: 'Rifugio Sanon 高山山屋咖啡館',
+        shortInfo: '招牌蘋果捲 (Apfelstrudel) ＋ 咖啡套餐 €7',
+        hasDetail: true,
+        detail: {
+          subtitle: '休斯高原超人氣木造景觀山屋',
+          hours: '09:00–17:00',
+          address: 'Sanon Hütte, 39040 Castelrotto BZ, Italy',
+          description: '坐落於草原正中央，坐在露天木椅上直面 Sassolungo 巨峰，品嚐熱騰騰的道地南蒂羅爾肉桂蘋果捲搭配香濃卡布奇諾 (套餐僅 7 歐)。',
+          mapQuery: 'Rifugio Sanon Alpe di Siusi'
+        }
+      }
+    ],
     hotelItems: [
       {
         id: '101-h1',
@@ -572,61 +783,63 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
       {
         id: '102-t1',
         category: 'traffic',
-        time: '08:45',
-        name: '自駕前往 Ortisei (奧蒂塞伊)',
-        shortInfo: '約 25 km｜車程約 35 分鐘',
+        time: '08:30',
+        name: 'Hotel Santner 出發 ➜ Mont Sëuc 纜車站',
+        shortInfo: '步行 6.5 km (約 1:35) ➜ 搭纜車下 Ortisei',
         hasDetail: true,
         detail: {
-          subtitle: '開車下山前往 Seceda 纜車站',
-          duration: '約 25 km (約 35 分鐘)',
-          description: '開車下山穿過山谷抵達 Val Gardena 名鎮 Ortisei，直達 Seceda 纜車站地下專屬停車場。',
-          parking: 'Parcheggio Seceda 大型地下停車場 (約 €2.5/小時)',
-          mapQuery: 'Parcheggio Seceda Ortisei'
+          subtitle: '徒步穿越高原至 Mont Sëuc 纜車站',
+          duration: '約 1 小時 35 分',
+          description: '08:30 自 Hotel Santner 出發徒步前往 Mont Sëuc 纜車站山上站（約 10:05 抵達），搭乘 Telecabina 景觀纜車下至 Ortisei 小鎮。亦可選擇自駕開車前往（Seceda 停車場約 €8/天）。',
+          parking: 'Seceda 纜車站專屬停車場 (約 €8/天)',
+          mapQuery: 'Telecabina Mont Seuc Ortisei'
         }
       },
       {
         id: '102-t2',
         category: 'traffic',
-        time: '09:30',
-        name: 'Seceda 纜車登頂 (經 Furnes 中繼站)',
-        shortInfo: 'Ortisei ➜ Furnes ➜ Seceda (海拔 2,518m)',
+        time: '10:30',
+        name: 'Ortisei 步行至 Seceda 纜車站',
+        shortInfo: '步行約 7 分鐘 (Str. Val d\'Anna 2)',
         hasDetail: true,
         detail: {
-          subtitle: 'Funivie Seceda 登上世界級斜切絕壁',
-          hours: '08:30–17:30',
-          ticket: '往返約 €39.50/人',
-          phone: '+39 0471 796531',
-          address: 'Via Val d\'Anna 2, 39046 Ortisei BZ, Italy',
-          description: '由 Ortisei 搭乘兩段全景纜車：第一段為小箱型纜車抵達中繼站 Furnes，第二段換乘大型全景吊箱纜車直達海拔 2,518m 刀鋒山頂觀景台。',
+          subtitle: '轉乘 Seceda 登山纜車',
+          duration: '約 7 分鐘',
+          address: 'Str. Val d\'Anna 2, 39046 Ortisei BZ, Italy',
+          description: '穿過 Ortisei 小鎮步行街前往 Seceda 纜車站。',
           mapQuery: 'Funivie Seceda Ortisei'
         }
       },
       {
         id: '102-t3',
         category: 'traffic',
-        time: '15:00',
-        name: '原路搭乘纜車返回 Ortisei',
-        shortInfo: 'Seceda ➜ Furnes ➜ Ortisei 纜車站',
+        time: '11:00',
+        name: 'Seceda 雙段纜車登頂 (Ortisei ➜ Furnes ➜ Seceda)',
+        shortInfo: '直上海拔 2,518m｜來回票約 €74 (線上預約)',
         hasDetail: true,
         detail: {
-          subtitle: '原路纜車下山至 Ortisei 小鎮',
-          duration: '約 25 分鐘',
-          description: '結束 Seceda 健行後，由山頂搭乘纜車經 Furnes 原路返回 Ortisei 纜車站地面。',
+          subtitle: 'Funivie Seceda 兩段階梯纜車直達刀鋒絕壁',
+          hours: '08:30–17:30 (每日營運，最後下山約 17:30)',
+          ticket: '來回票約 €74/人 (建議提前線上預約)',
+          phone: '+39 0471 796531',
+          address: 'Str. Val d\'Anna 2, 39046 Ortisei BZ, Italy',
+          parking: '纜車站停車場約 €8/天',
+          description: '由 Ortisei 搭乘箱型纜車至 Furnes 中繼站，再換乘大型全景吊車凌空飛躍峽谷直達 Seceda 山頂（海拔 2,518m）。',
           mapQuery: 'Funivie Seceda Ortisei'
         }
       },
       {
         id: '102-t4',
         category: 'traffic',
-        time: '17:30',
-        name: '自駕返回 Hotel Santner',
-        shortInfo: '約 25 km｜車程約 35 分鐘',
+        time: '14:45',
+        name: '原路搭乘纜車返回 Ortisei ＆ 回飯店',
+        shortInfo: '建議 14:45 離開刀鋒原路返回｜末班 17:30',
         hasDetail: true,
         detail: {
-          subtitle: '返回休斯高原飯店地下車庫',
-          duration: '約 25 km (約 35 分鐘)',
-          parking: 'Hotel Santner 免費地下車庫',
-          mapQuery: 'Hotel Santner Alpine Sport & Relax Alpe di Siusi'
+          subtitle: '原路下山並徒步返回休斯高原',
+          duration: '下山約 25 分鐘，回飯店預留約 1:35',
+          description: '結束健行後由 Seceda 搭乘纜車返回 Ortisei，逛街後搭乘 Mont Sëuc 纜車並漫步返回 Hotel Santner。',
+          mapQuery: 'Funivie Seceda Ortisei'
         }
       }
     ],
@@ -634,34 +847,66 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
       {
         id: '102-s1',
         category: 'spot',
-        time: '10:00',
-        name: 'Seceda 刀鋒山斜切絕壁觀景健行',
-        shortInfo: '國家地理經典畫面 · 海拔 2,518m 絕壁',
+        time: '11:30',
+        name: 'Seceda 刀鋒山脊健行 ＆ Fermeda 觀景',
+        shortInfo: '刀鋒山脊步道 · 20–30 分抵 Fermeda 觀景點',
         hasDetail: true,
         detail: {
-          subtitle: '如同巨斧斜削般垂直拔起的巨石奇觀',
-          duration: '健行停留約 2 小時',
-          description: '多洛米蒂最標誌性的封面絕景！綠色如絲絨的高山草坡瞬間切斷，轉為深不見底的垂直落差絕壁，氣勢恢宏無比。',
+          subtitle: 'Seceda 刀鋒山脊健行',
+          duration: '約 1.5 小時',
+          description: '自 Seceda 上站出發沿山脊步道健行，俯瞰千米垂直斷崖與草甸，遠眺 Odle 鋸齒峰。',
           mapQuery: 'Seceda Viewpoint Ortisei'
         }
       },
       {
         id: '102-s2',
         category: 'spot',
-        time: '13:00',
-        name: 'Pieralongia 巨石木屋漫步',
-        shortInfo: '雙尖石塔巨岩 · 傳統木屋手作輕食',
+        time: '12:30',
+        name: 'Pieralongia 雙尖巨石木屋漫步',
+        shortInfo: '奇特大石頭 · 單程 2 km 來回 4 km',
         hasDetail: true,
         detail: {
-          subtitle: '平緩草地步道漫步約 30 分鐘抵達',
-          duration: '停留約 45 分鐘',
+          subtitle: '草甸巨岩地標與高山農莊',
+          duration: '單程約 2 km (約 30 分鐘)',
           address: 'Pieralongia, 39046 Ortisei BZ, Italy',
-          description: '兩根直插雲霄的雙尖巨石矗立在綠茵草地上，小木屋販售牧場新鮮手作酸奶與輕食。欣賞完畢後原路漫步返回纜車站。',
+          description: '沿平緩步道抵達聳立草地的兩根巨尖岩石，木屋供應手作鮮奶優格與飲品。欣賞後建議於 14:45 前原路返回纜車站。',
           mapQuery: 'Baita Pieralongia Seceda'
+        }
+      },
+      {
+        id: '102-s3',
+        category: 'spot',
+        time: '15:30',
+        name: 'Ortisei (奧蒂塞伊) 徒步街漫步',
+        shortInfo: '木雕工藝之都 · 繽紛房舍街道',
+        hasDetail: true,
+        detail: {
+          subtitle: 'Ortisei 行人步行街',
+          duration: '約 1 小時',
+          address: 'Ortisei, 39046 BZ, Italy',
+          description: '漫步在 Ortisei 石板行人街道，欣賞木雕藝品櫥窗與傳統阿爾卑斯建築。',
+          mapQuery: 'Ortisei Val Gardena'
         }
       }
     ],
-    foodItems: [],
+    foodItems: [
+      {
+        id: '102-f1',
+        category: 'food',
+        time: '17:30',
+        name: 'Mauriz Keller 餐廳',
+        shortInfo: '南蒂羅爾鄉村料理 · 人氣披薩 · +39 0471 797301',
+        hasDetail: true,
+        detail: {
+          subtitle: 'Ortisei 老城知名人氣地窖餐廳',
+          hours: '11:30–14:00 / 17:00–21:30',
+          phone: '+39 0471 797301',
+          address: 'Streda Rezia 32, 39046 Ortisei BZ, Italy',
+          description: '供應道地義大利窯烤披薩、南蒂羅爾烤肉排與手工義大利麵，下山後若在鎮上用餐首推此處！',
+          mapQuery: 'Mauriz Keller Ortisei'
+        }
+      }
+    ],
     hotelItems: [
       {
         id: '102-h1',
@@ -704,70 +949,85 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
   },
 
   // ==========================================
-  // 10/3 (六) ｜ Lago di Braies
+  // 10/3 (六) ｜ 藍柯弗爾山 16/17/18 纜車 ➜ 前往 Vodo Cadore
   // ==========================================
   {
     dayNum: 6,
     dateKey: '10/3',
     weekday: '六',
-    city: 'Lago di Braies',
-    subRoute: 'Hotel Santner 退房 ➜ Brunico / San Lorenzo ➜ INTERSPAR 補給 ➜ Lago di Braies 布萊埃斯湖 ➜ Dobbiaco ➜ Vodo Cadore ➜ Chalet del Capriolo｜住 Chalet del Capriolo',
+    city: '藍柯弗爾山 ➜ Vodo Cadore',
+    subRoute: 'Hotel Santner 退房 ➜ Plan de Gralba 停車 ➜ 16/17/18 纜車 ➜ 石頭城步道 ➜ Arabba 超市 ➜ 加油 ➜ 入住 Chalet del Capriolo｜住 Chalet del Capriolo',
     trafficItems: [
       {
         id: '103-t1',
         category: 'traffic',
-        time: '09:00',
-        name: 'Hotel Santner 退房 ＆ 翻越 Passo Gardena',
-        shortInfo: '加爾狄納山口 (海拔 2,136m) · 景觀公路',
+        time: '08:30',
+        name: 'Hotel Santner 退房 ＆ 前往 Plan de Gralba 停車場',
+        shortInfo: '停車場 €2.50/小時 · Selva di Val Gardena',
         hasDetail: true,
         detail: {
-          subtitle: 'Sella 群峰景觀公路翻越山口',
-          duration: '約 1 小時 (盤山景觀路)',
-          description: '自 Hotel Santner 退房，駕車穿過 Selva di Val Gardena 爬升至著名的加爾狄納山口。左側 Cir 群峰、右側 Sella 巨岩台地，視野無比開闊。',
-          parking: 'Passo Gardena 山口大型觀景停車場 (約 €2)',
-          mapQuery: 'Passo Gardena Viewpoint'
+          subtitle: '自駕前往藍柯弗爾山纜車站停車場',
+          duration: '約 30 分鐘',
+          address: 'Streda Plan de Gralba, 39048 Selva di Val Gardena BZ, Italy',
+          parking: 'Parking Plan de Gralba (收費約 €2.50/小時)',
+          description: '自 Hotel Santner 退房後，自駕前往 Plan de Gralba 停車場，在此搭乘纜車系統前往藍柯弗爾山。',
+          mapQuery: 'Parking Plan de Gralba'
         }
       },
       {
         id: '103-t2',
         category: 'traffic',
-        time: '11:15',
-        name: '自駕前往 Brunico / San Lorenzo (INTERSPAR 補給)',
-        shortInfo: '經 Val Badia 抵達南蒂羅爾門戶 · 車程約 50 分鐘',
+        time: '09:30',
+        name: '16 號 Piz Seteur 1 ➜ 17 號 Gran Paradiso 纜車',
+        shortInfo: '10人座車廂 ➜ 8人有罩座椅 · 前往 Passo Sella',
         hasDetail: true,
         detail: {
-          subtitle: '南蒂羅爾生鮮旗艦超市採買',
-          duration: '約 45 km (約 50 分鐘)',
-          parking: 'INTERSPAR Brunico 大型免費停車場',
-          mapQuery: 'Interspar Brunico'
+          subtitle: '兩段纜車銜接石頭城步道',
+          hours: '09:00–17:00',
+          ticket: '建議購買 Eco Pass 三線套票約 €50/人 (若單買分開約 €79/人)',
+          description: '搭乘 16 號 Piz Seteur 1（10人座大型車廂），接著轉乘 17 號 Gran Paradiso（8人有防風罩座椅）。出站後銜接 526 號健行步道。',
+          mapQuery: 'Piz Seteur Gondola'
         }
       },
       {
         id: '103-t3',
         category: 'traffic',
-        time: '14:15',
-        name: '自駕前往布萊埃斯湖 (Lago di Braies)',
-        shortInfo: '約 28 km · 車程約 30 分鐘',
+        time: '11:00',
+        name: '18 號 Forcella Sassolungo 雙人站立纜車',
+        shortInfo: '直上海拔 2,685m Toni Demetz 山屋 · 全程站立',
         hasDetail: true,
         detail: {
-          subtitle: '前往多洛米蒂綠寶石仙境湖泊',
-          duration: '約 28 km (約 30 分鐘)',
-          parking: 'P3 / P4 湖邊大型收費停車場 (約 €10～12/次)',
-          description: '沿 SS49 景觀公路轉入 Braies 山谷直達湖畔停車場。10 月份夏季管制多已解除，車輛可直接駛入。',
-          mapQuery: 'Lago di Braies Parking P3'
+          subtitle: '雙人站立式纜車 (往返)',
+          hours: '09:00–16:45',
+          description: '兩人一艙全程站立，移動中由人員協助迅速上下車。直達海拔 2,685m Toni Demetz 山屋與峽谷隘口。',
+          notice: '雙人站立纜車需站立約 15 分鐘，移動中上下車請遵從工作人員指示。',
+          mapQuery: 'Forcella Sassolungo Telecabina'
         }
       },
       {
         id: '103-t4',
         category: 'traffic',
-        time: '16:30',
-        name: '自駕經 Dobbiaco 前往 Vodo Cadore',
-        shortInfo: '約 50 km · 車程約 1 小時 10 分',
+        time: '14:30',
+        name: '自駕前往 Arabba 超市補給 ＆ ENI 加油',
+        shortInfo: 'DESPAR 超市 ➜ ENI 加油站 ➜ 前往 Vodo Cadore',
         hasDetail: true,
         detail: {
-          subtitle: '經 Dobbiaco 與 Cortina 南下前往木屋公寓',
-          duration: '約 50 km (約 1 小時 10 分)',
-          parking: 'Chalet del Capriolo 專屬私人免費停車位 (免預約)',
+          subtitle: '沿途採買木屋料理食材與油料補滿',
+          description: '下山後驅車前往 Arabba 的 DESPAR DOLOMITES 超市採買未來 3 天木屋自煮所需生鮮與紅酒，並在 ENI STATION 加滿油箱後南下前往木屋。',
+          mapQuery: 'Despar Dolomites Arabba'
+        }
+      },
+      {
+        id: '103-t5',
+        category: 'traffic',
+        time: '16:30',
+        name: '自駕前往 Vodo Cadore (木屋公寓)',
+        shortInfo: '抵達 Chalet del Capriolo｜專屬私人免費停車位',
+        hasDetail: true,
+        detail: {
+          subtitle: '抵達多洛米蒂東側木屋公寓',
+          address: '108 Via Nazionale, 32040 Vodo Cadore, Italy',
+          parking: '公寓專屬私人免費停車位 (免預約)',
           mapQuery: 'Chalet del Capriolo 108 Via Nazionale Vodo Cadore'
         }
       }
@@ -777,50 +1037,61 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
         id: '103-s1',
         category: 'spot',
         time: '10:15',
-        name: 'Passo Gardena 山口觀景台',
-        shortInfo: '海拔 2,136m 頂點 · 俯瞰山谷喝熱咖啡',
+        name: '526 號健行步道 (石頭城 Cidade dei Sassi)',
+        shortInfo: '穿過石頭城巨岩怪石 · 1.3 km 約 25 分鐘',
         hasDetail: true,
         detail: {
-          subtitle: '阿爾卑斯頂點全景觀景台',
-          duration: '停留約 40 分鐘',
-          description: '在山口觀景平台深呼吸純淨的高山空氣，欣賞如同月球表面般的巨大白色石灰岩岩壁，在小木屋喝一杯熱 Espresso。',
-          mapQuery: 'Passo Gardena Viewpoint'
+          subtitle: '石頭城自然步道',
+          duration: '步行約 25 分鐘 (1.3 km)',
+          description: '由 17 號纜車站出發，沿 526 號步道穿越石頭城（Cidade dei Sassi），巨石錯落林立，一路朝 Passo Sella 前進。',
+          mapQuery: 'Citta dei Sassi Passo Sella'
         }
       },
       {
         id: '103-s2',
         category: 'spot',
-        time: '12:00',
-        name: 'INTERSPAR Brunico / San Lorenzo 補給採買',
-        shortInfo: '生鮮旗艦店 · 採買 3 天木屋自煮食材',
+        time: '11:15',
+        name: 'Toni Demetz 高山山屋與隘口 (海拔 2,685m)',
+        shortInfo: 'Sassolungo 鞍部隘口 · 海拔 2,685m',
         hasDetail: true,
         detail: {
-          subtitle: '南蒂羅爾頂級生鮮旗艦超市',
-          hours: '08:00–19:30 (週六營業，週日休業)',
-          phone: '+39 0474 553011',
-          address: 'Via Bastioni 22, 39031 Brunico BZ, Italy',
-          description: '採買未來 3 天在木屋自煮所需的頂級熟成牛排、新鮮莫札瑞拉起司、帕瑪火腿、義大利麵、沙拉與 Alto Adige DOC 紅白葡萄酒。生鮮可請店員真空包裝。',
-          mapQuery: 'Interspar Brunico'
-        }
-      },
-      {
-        id: '103-s3',
-        category: 'spot',
-        time: '14:45',
-        name: 'Lago di Braies (布萊埃斯湖)',
-        shortInfo: '翡翠湖光倒影 ＆ 著名木造船屋漫步',
-        hasDetail: true,
-        detail: {
-          subtitle: '多洛米蒂最著名的仙境之湖',
-          duration: '湖畔漫步約 1.5 小時',
-          ticket: '步道免費開放',
-          address: 'Lago di Braies, 39030 Braies BZ, Italy',
-          description: '被巍峨石灰岩群峰環抱的翡翠色高山湖泊。古老木造船屋與停泊在湖畔的一艘艘木划船倒映在翠綠湖水上，寧靜典雅至極。',
-          mapQuery: 'Lago di Braies Braies'
+          subtitle: 'Toni Demetz 高山山屋與隘口',
+          duration: '停留約 40 分鐘',
+          description: '矗立於隘口風口處的高山山屋，四周為白色垂直石灰岩壁，可在此休息拍照，隨後搭纜車原路返回。',
+          mapQuery: 'Rifugio Toni Demetz'
         }
       }
     ],
-    foodItems: [],
+    foodItems: [
+      {
+        id: '103-f1',
+        category: 'food',
+        time: '14:45',
+        name: 'DESPAR DOLOMITES 超市 (Arabba)',
+        shortInfo: '採買牛排、蔬菜、蛋奶起司與葡萄酒',
+        hasDetail: true,
+        detail: {
+          subtitle: '前往木屋前之重要生鮮採買站',
+          address: 'Via Mesdi Arabba 45, 32020 Arabba BL, Italy',
+          description: '採買未來 3 天在 Chalet del Capriolo 自煮所需新鮮牛排、松露義大利麵醬、新鮮蔬菜、蛋奶起司與 Alto Adige DOC 紅白葡萄酒。',
+          mapQuery: 'Despar Dolomites Arabba'
+        }
+      },
+      {
+        id: '103-f2',
+        category: 'food',
+        time: '15:30',
+        name: 'ENI STATION 加油站 (Ortisei / Val Gardena)',
+        shortInfo: '加滿油箱 · 備足長途油料',
+        hasDetail: true,
+        detail: {
+          subtitle: '高山途經加油整備',
+          address: 'Streda Tresval Valgardena, 39046 Ortisei BZ, Italy',
+          description: '在進入 Cadore 山區前將車輛油箱補滿。',
+          mapQuery: 'Eni Station Streda Tresval'
+        }
+      }
+    ],
     hotelItems: [
       {
         id: '103-h1',
@@ -833,7 +1104,7 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
           hours: '入住時間：16:00–19:00 / 退房時間：08:00–09:00',
           phone: '+39 0435 489207',
           address: '108 Via Nazionale, 32040 Vodo Cadore, Italy',
-          bookingCode: 'Booking.com: 5916.383.549 (住客：CHEN CHIUNG HUA)',
+          bookingCode: 'Booking.com: 5468.211.528 / PIN: 3570 (CHEN CHIUNG HUA)',
           parking: '公寓專屬私人免費停車位 (免預約)',
           price: 'EUR 856.20 (已含清潔費與城市稅)；信用卡支付 EUR 200 損壞押金',
           description: '附設全套現代化廚房（烤箱、洗碗機）、免治馬桶、洗衣機與獨立烘衣機。請注意嚴格入住時間 16:00–19:00。',
@@ -845,62 +1116,78 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
       {
         id: '103-a1',
         category: 'alert',
-        name: 'Chalet 嚴格入住時間 (16:00–19:00)',
-        shortInfo: '需信用卡刷 EUR 200 押金 (退房 7 天後無損原卡退回)',
+        name: 'Forcella Sassolungo 雙人站立纜車注意事項',
+        shortInfo: '移動中由工作人員協助上下車，需全程站立約 15 分鐘',
         hasDetail: true,
         detail: {
-          subtitle: '公寓接待處入住規定',
-          description: 'Chalet del Capriolo 規定入住接待時間為 16:00–19:00。請備妥主要住客信用卡刷 EUR 200 押金，並攜帶護照登記。'
+          subtitle: '站立式纜車安全須知',
+          description: '18 號纜車為無座椅站立式車廂，車速不慢，上下車需手腳敏捷配合引導。高空風大，山頂氣溫偏低，請備防風外套。'
         }
       },
       {
         id: '103-a2',
         category: 'alert',
-        name: '週末超市採買注意',
-        shortInfo: '義大利週日許多大型超市休業，今日在 Brunico 買齊 3 天份食材',
+        name: 'Chalet 嚴格入住時間 (16:00–19:00)',
+        shortInfo: 'Booking 確認碼: 5468.211.528 / PIN: 3570 · 信用卡 EUR 200 押金',
         hasDetail: true,
         detail: {
-          subtitle: '週日超市公休提醒',
-          description: '義大利週日多數大型超市縮短或休業。今日週六特地安排 INTERSPAR 旗艦店，請備齊牛排、蔬菜、蛋奶與紅酒。'
+          subtitle: '公寓接待處入住規定',
+          description: 'Chalet del Capriolo 規定入住接待時間為 16:00–19:00。請備妥主要住客信用卡刷 EUR 200 押金，並出示訂單 PIN 碼 3570。'
         }
       }
     ]
   },
 
   // ==========================================
-  // 10/4 (日) ｜ Cortina d'Ampezzo
+  // 10/4 (日) ｜ 布萊埃斯湖 ➜ 科爾蒂納·丹佩佐
   // ==========================================
   {
     dayNum: 7,
     dateKey: '10/4',
     weekday: '日',
-    city: 'Cortina d\'Ampezzo',
-    subRoute: 'Chalet del Capriolo ➜ Cortina d\'Ampezzo ➜ 老城 ➜ La Cooperativa di Cortina ➜ 逛街／午餐／咖啡 ➜ 返回 Vodo Cadore｜住 Chalet del Capriolo',
+    city: 'Lago di Braies ➜ Cortina',
+    subRoute: 'Chalet del Capriolo ➜ 布萊埃斯湖 (木划船/環湖) ➜ Cortina 老城 ➜ La Cooperativa 百貨 ➜ 返回木屋｜住 Chalet del Capriolo',
     trafficItems: [
       {
         id: '104-t1',
         category: 'traffic',
-        time: '10:00',
-        name: '自駕前往 Cortina d\'Ampezzo',
-        shortInfo: '約 16 km｜車程約 20 分鐘',
+        time: '09:00',
+        name: '自駕前往布萊埃斯湖 (Lago di Braies)',
+        shortInfo: '約 55 km｜車程約 1 小時 · P3 停車場 (現金 €10/天)',
         hasDetail: true,
         detail: {
-          subtitle: '沿 SS51 景觀公路前往冬奧名城',
-          duration: '約 16 km (約 20 分鐘)',
-          parking: 'Parcheggio Cortina / Parcheggio Funivia Faloria (約 €2/小時)',
-          description: '駕車向北穿行山谷，進入被群山環抱的 2026 冬奧主辦城 Cortina。將車停入鎮中心外圍專用停車場。',
-          mapQuery: 'Parcheggio Cortina d\'Ampezzo'
+          subtitle: '前往布萊埃斯湖 P3 停車場',
+          duration: '約 55 km (約 1 小時)',
+          parking: 'P3 停車場 (收現金 €10/天，繳費收據請放前車窗，GPS: P32P+F3 布拉伊埃斯)',
+          description: '駕車北上穿過 Cortina 經 SS51/SS49 進入 Braies 山谷直達湖畔 P3 停車場。',
+          mapQuery: 'Lago di Braies Parking P3'
         }
       },
       {
         id: '104-t2',
         category: 'traffic',
-        time: '16:30',
-        name: '自駕返回 Vodo Cadore',
+        time: '14:00',
+        name: '自駕前往 Cortina d\'Ampezzo',
+        shortInfo: '約 45 km｜車程約 45 分鐘',
+        hasDetail: true,
+        detail: {
+          subtitle: '前往 Cortina 小鎮',
+          duration: '約 45 km (約 45 分鐘)',
+          parking: 'Parcheggio Cortina / Parcheggio Funivia Faloria (約 €2/小時)',
+          description: '駕車南下前往 Cortina，將車輛停入老城外圍專用停車場。',
+          mapQuery: 'Parcheggio Cortina d\'Ampezzo'
+        }
+      },
+      {
+        id: '104-t3',
+        category: 'traffic',
+        time: '17:30',
+        name: '自駕返回 Vodo Cadore (Chalet del Capriolo)',
         shortInfo: '約 16 km｜車程約 20 分鐘',
         hasDetail: true,
         detail: {
-          subtitle: '返回木屋公寓',
+          subtitle: '返回木屋公寓休息自煮',
+          description: '自 Cortina 沿 SS51 國道返回 Vodo Cadore，將車輛停入專屬停車位。',
           mapQuery: 'Chalet del Capriolo 108 Via Nazionale Vodo Cadore'
         }
       }
@@ -909,35 +1196,82 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
       {
         id: '104-s1',
         category: 'spot',
-        time: '10:30',
-        name: 'Cortina 老城 ＆ Corso Italia 步行街漫步',
-        shortInfo: 'Cortina 標誌性石板街 · 名品與木雕店',
+        time: '10:15',
+        name: 'Lago di Braies (布萊埃斯湖) 環湖步道 ＆ 木划船',
+        shortInfo: '木划船 (45分 €15 / 私人 €55) · 湖畔步道',
         hasDetail: true,
         detail: {
-          subtitle: '阿爾卑斯時尚名城核心步行區',
-          duration: '停留約 1.5 小時',
-          address: 'Corso Italia, 32043 Cortina d\'Ampezzo BL, Italy',
-          description: 'Cortina 最熱鬧的核心步行街，精品名店、傳統木雕藝品店與珠寶櫥窗林立，身後聳立著 Cristallo 群峰壯麗雪山背景。',
-          mapQuery: 'Corso Italia Cortina d\'Ampezzo'
+          subtitle: '湖畔步道與木划船租借',
+          duration: '停留約 2.5～3 小時',
+          ticket: '步道免費；木划船 45 分鐘 €15 / 私人船 €55',
+          address: 'Lago di Braies, 39030 Braies BZ, Italy',
+          description: '高山湖泊環湖步道與木造船屋，可租借木划船划向湖心，或沿著湖畔平緩步道散步拍照。',
+          mapQuery: 'Lago di Braies Braies'
         }
       },
       {
         id: '104-s2',
         category: 'spot',
-        time: '11:45',
-        name: 'La Cooperativa di Cortina (百年名店百貨)',
-        shortInfo: '百年歷史名店百貨 · 高山選品 · 戶外品牌 · 地下超市',
+        time: '14:45',
+        name: 'Cortina 老城 ＆ Corso Italia 步行街漫步',
+        shortInfo: 'Corso Italia 步行街 · 木雕藝品名店',
         hasDetail: true,
         detail: {
-          subtitle: 'Cortina 最具代表性的綜合購物商場',
-          hours: '09:00–19:30',
+          subtitle: 'Corso Italia 步行街',
+          duration: '漫步約 1.5 小時',
+          address: 'Corso Italia, 32043 Cortina d\'Ampezzo BL, Italy',
+          description: '精品名店、傳統木雕藝品店與珠寶櫥窗林立，背景為雪山群峰。',
+          mapQuery: 'Corso Italia Cortina d\'Ampezzo'
+        }
+      },
+      {
+        id: '104-s3',
+        category: 'spot',
+        time: '15:45',
+        name: 'La Cooperativa di Cortina (六層百年百貨)',
+        shortInfo: '1F 超市 · 4F 景觀餐廳 The Roof · 戶外品牌',
+        hasDetail: true,
+        detail: {
+          subtitle: 'Cortina 綜合商場百貨',
+          hours: '1F 超市 15:00–19:30；4F 景觀餐廳 09:00–23:00',
           address: 'Corso Italia 40, 32043 Cortina d\'Ampezzo BL, Italy',
-          description: '創立於 1893 年的百年老牌百貨公司，集結義大利奢華羊絨、頂級登山戶外裝備、南蒂羅爾手工藝品與生鮮超市，是逛街購物必訪之處。',
+          description: '創立於 1893 年的百年老牌百貨公司，集結義大利羊絨、登山戶外裝備、南蒂羅爾手工藝品與生鮮超市，4F 設有景觀露台餐酒館 The Roof。',
           mapQuery: 'La Cooperativa di Cortina'
         }
       }
     ],
-    foodItems: [],
+    foodItems: [
+      {
+        id: '104-f1',
+        category: 'food',
+        time: '12:30',
+        name: 'Ristorante Lago di Braies 湖畔餐廳',
+        shortInfo: '湖畔熱食 12:00–14:00 · 咖啡可頌 · 發票可免費上廁所',
+        hasDetail: true,
+        detail: {
+          subtitle: '布萊埃斯湖畔經典木造景觀餐廳',
+          hours: '熟食熱餐 12:00–14:00；咖啡點心全天供應',
+          address: 'San Vito 27, 39030 Braies BZ, Italy',
+          description: '緊鄰湖畔，提供熱騰騰的義大利麵、燉牛肉、咖啡與可頌。發票務必留著，憑發票可免費使用餐廳洗手間！',
+          mapQuery: 'Ristorante Lago di Braies'
+        }
+      },
+      {
+        id: '104-f2',
+        category: 'food',
+        time: '16:30',
+        name: 'The Roof Bistrot & Lounge Bar (4F 百貨景觀餐廳)',
+        shortInfo: 'La Cooperativa 4F · 俯瞰 Cortina 雪山群峰下午茶',
+        hasDetail: true,
+        detail: {
+          subtitle: '百年百貨頂樓全景餐酒館',
+          hours: '09:00–23:00',
+          address: 'Corso Italia 40 (4F), 32043 Cortina d\'Ampezzo BL, Italy',
+          description: '逛街小歇絕佳去處，享受義式濃縮咖啡、Spritz 調酒與精緻小點，眺望阿爾卑斯壯麗雪山。',
+          mapQuery: 'The Roof Bistrot Cortina'
+        }
+      }
+    ],
     hotelItems: [
       {
         id: '104-h1',
@@ -956,6 +1290,17 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
     alertItems: [
       {
         id: '104-a1',
+        category: 'alert',
+        name: 'Lago di Braies P3 停車收現金注意',
+        shortInfo: 'P3 停車場收現金 €10/天，繳費收據請務必放置前車窗',
+        hasDetail: true,
+        detail: {
+          subtitle: '湖區停車注意事項',
+          description: 'P3 湖畔收費停車場需準備 €10 現金。繳費後請將收據放置在擋風玻璃明顯處以供查驗。'
+        }
+      },
+      {
+        id: '104-a2',
         category: 'alert',
         name: 'Cortina 老城步行街禁止車輛駛入',
         shortInfo: 'Corso Italia 為徒步區，請停放於鎮中心外圍專用停車場',
@@ -976,7 +1321,7 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
     dateKey: '10/5',
     weekday: '一',
     city: 'Tre Cime di Lavaredo ＆ Lago di Misurina',
-    subRoute: 'Vodo Cadore ➜ 三峰山 (Tre Cime di Lavaredo) ➜ 米蘇里納湖 (Lago di Misurina) ➜ 返回 Vodo Cadore｜住 Chalet del Capriolo',
+    subRoute: 'Vodo Cadore ➜ 三峰山 (Auronzo 停車場) ➜ 101步道健行 ➜ 米蘇里納湖 ➜ 農場生鮮店 ➜ 返回木屋自煮大餐｜住 Chalet del Capriolo',
     trafficItems: [
       {
         id: '105-t1',
@@ -988,9 +1333,9 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
         detail: {
           subtitle: '清晨出發直達海拔 2,320m Auronzo 停車場',
           duration: '約 42 km (約 50 分鐘)',
-          ticket: '景觀收費公路通行與停車費約 €30/小客車',
-          parking: 'Rifugio Auronzo 海拔 2,320m 專屬大型收費停車場',
-          description: '清晨自駕出發，抵達 Misurina 湖畔收費站購票進入盤山收費公路，直達三峰山大健行起點 Auronzo 停車場。',
+          ticket: '私人收費道路與停車 €40/小客車 (有效 12小時，2025起必須事先線上預約刷卡填入車牌，閘門車牌辨識放行)',
+          parking: 'Rifugio Auronzo 海拔 2,320m 專屬大型停車場 (GPS: 46.6128 N, 12.2933 E)',
+          description: '清晨自駕出發，抵達 Misurina 湖畔收費站憑預約車牌進入盤山收費公路，直達三峰山大健行起點 Auronzo 停車場。',
           mapQuery: 'Rifugio Auronzo Tre Cime di Lavaredo'
         }
       },
@@ -999,10 +1344,10 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
         category: 'traffic',
         time: '14:30',
         name: '自駕前往：三峰山 ➜ 米蘇里納湖 (Lago di Misurina)',
-        shortInfo: '約 10 km｜車程約 15 分鐘',
+        shortInfo: '約 10 km｜車程約 15 分鐘 (GPS: 46.536092, 12.139349)',
         hasDetail: true,
         detail: {
-          subtitle: '下山前往米蘇里納湖',
+          subtitle: '下山前往米蘇里納湖畔',
           duration: '約 10 km (約 15 分鐘)',
           parking: '湖畔專屬收費停車場 (約 €2/小時)',
           mapQuery: 'Lago di Misurina Auronzo di Cadore'
@@ -1016,7 +1361,7 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
         shortInfo: '約 38 km｜車程約 40 分鐘',
         hasDetail: true,
         detail: {
-          subtitle: '返回木屋公寓休息',
+          subtitle: '返回木屋公寓休息自煮',
           duration: '約 38 km (約 40 分鐘)',
           mapQuery: 'Chalet del Capriolo 108 Via Nazionale Vodo Cadore'
         }
@@ -1027,13 +1372,14 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
         id: '105-s1',
         category: 'spot',
         time: '08:45',
-        name: '三峰山 (Tre Cime di Lavaredo)',
-        shortInfo: '多洛米蒂地標三尖峰 · 世界自然遺產經典環狀健行',
+        name: '三峰山經典健行 (Rifugio Auronzo ➜ Lavaredo 隘口)',
+        shortInfo: '101 步道 ➜ Cappella degli Alpini ➜ Rifugio Lavaredo',
         hasDetail: true,
         detail: {
-          subtitle: '經典環狀步道 (全程約 9.5 km)',
-          duration: '步行約 3.5～4.5 小時',
-          description: '由 Auronzo 停車場出發，直面三座垂直巍峨之石灰岩尖峰巨壁，飽覽多洛米蒂最具代表性之磅礡世界自然遺產全景。',
+          subtitle: '101 步道健行 (全程約 3.5～4 小時)',
+          duration: '健行約 3.5～4 小時',
+          address: 'Tre Cime di Lavaredo, 32041 Auronzo di Cadore BL, Italy',
+          description: '由 Auronzo 停車場出發，沿 101 號步道經 Cappella degli Alpini 到達 Rifugio Lavaredo，再登上 Forcella Lavaredo 隘口觀景。',
           mapQuery: 'Tre Cime di Lavaredo Auronzo di Cadore'
         }
       },
@@ -1041,31 +1387,61 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
         id: '105-s2',
         category: 'spot',
         time: '14:45',
-        name: '米蘇里納湖 (Lago di Misurina)',
-        shortInfo: '多洛米蒂高山湖泊 · 湖光山色倒影',
+        name: '米蘇里納湖 (Lago di Misurina) 湖畔散步賞景',
+        shortInfo: '湖畔散步 · 停留約 1 小時 · GPS: 46.536092, 12.139349',
         hasDetail: true,
         detail: {
-          subtitle: '米蘇里納高山湖泊景觀',
+          subtitle: '湖畔步道與咖啡館',
           duration: '停留約 1 小時',
-          address: 'Lago di Misurina, 32041 Auronzo di Cadore BL, Italy',
-          description: '坐落於三峰山山腳下的清澈高山湖泊，水面映照雄偉群峰倒影。',
+          address: 'Lago di Misurina, 32041 Auronzo di Cadore BL, Italy (GPS: 46.536092, 12.139349)',
+          description: '湖面可觀賞山峰倒影，步道平緩好走，設有木椅與咖啡座，適合停留散步拍照。',
           mapQuery: 'Lago di Misurina Auronzo di Cadore'
+        }
+      },
+      {
+        id: '105-s3',
+        category: 'spot',
+        time: '17:15',
+        name: 'Azienda agricola Paolo Rossa 農場生鮮店',
+        shortInfo: '木屋後方步行即達 · 新鮮高山蔬菜、雞蛋、起司與冷肉',
+        hasDetail: true,
+        detail: {
+          subtitle: 'Vodo Cadore 在地高山農場直營店',
+          hours: '營業至 20:30',
+          address: 'Località Volto, 32040 Vodo Cadore BL, Italy',
+          description: '緊鄰 Chalet del Capriolo 民宿後方，步行數分鐘即達。供應當天新鮮採摘蔬菜、土雞蛋、手工起司與風乾冷肉，是今晚自煮慶祝大餐的絕佳補給點！',
+          mapQuery: 'Azienda agricola Paolo Rossa Vodo Cadore'
         }
       }
     ],
-    foodItems: [],
+    foodItems: [
+      {
+        id: '105-f1',
+        category: 'food',
+        time: '18:30',
+        name: '木屋原木廚房自煮慶祝晚餐',
+        shortInfo: '農場鮮蔬、香煎牛排、起司沙拉與 DOC 紅酒',
+        hasDetail: true,
+        detail: {
+          subtitle: '義大利多洛米蒂告別豐盛晚餐',
+          address: 'Chalet del Capriolo 廚房',
+          description: '利用頂樓公寓現代化廚房料理農場鮮蔬與牛排，共飲美酒，慶祝義大利山區壯遊圓滿，並整理跨國行李。',
+          mapQuery: 'Chalet del Capriolo 108 Via Nazionale Vodo Cadore'
+        }
+      }
+    ],
     hotelItems: [
       {
         id: '105-h1',
         category: 'hotel',
         name: 'Chalet del Capriolo',
-        shortInfo: '續住第 3 晚 (義大利最後一夜)｜明日 08:00 退房',
+        shortInfo: '續住第 3 晚 (義大利最後一夜)｜明日 08:30 退房',
         hasDetail: true,
         detail: {
           subtitle: '頂樓原木景觀公寓 · 專屬私人停車',
           address: '108 Via Nazionale, 32040 Vodo Cadore, Italy',
           phone: '+39 0435 489207',
-          description: '續住第 3 晚。明日 08:00–08:30 退房，經 A27 高速自駕前往 Trieste Hertz 還車，銜接 12:20 FlixBus 跨國巴士前往克羅埃西亞 Zagreb。',
+          description: '續住第 3 晚。明日 08:30 退房，經 A27 高速自駕前往 Trieste Hertz 還車，銜接 12:20 FlixBus 跨國巴士前往克羅埃西亞 Zagreb。',
           mapQuery: 'Chalet del Capriolo 108 Via Nazionale Vodo Cadore'
         }
       }
@@ -1074,23 +1450,23 @@ const ITALY_TWO_LAYER_DAYS: RawDayTwoLayer[] = [
       {
         id: '105-a1',
         category: 'alert',
-        name: '三峰山收費公路管制守則',
-        shortInfo: '山頂車位有限一旦飽和將封閉，務必 07:45 出發、08:30 前通過收費站！',
+        name: '三峰山收費公路 2025 線上預約管制',
+        shortInfo: '收費 €40/小客車，2025 起須事先線上預約刷卡填入車牌，閘門辨識放行！',
         hasDetail: true,
         detail: {
-          subtitle: '三峰山景觀公路通行守則',
-          description: '由 Misurina 上山的收費公路（約 €30/車）一旦山頂停車場飽和，收費站將立即封閉閘門禁止車輛上行。請務必於 07:45 準時出發！'
+          subtitle: '三峰山景觀公路通行新制守則',
+          description: '由 Misurina 上山的收費公路（約 €40/車）實施車流總量管制。2025 年起必須事先於官網預約刷卡填入車牌，山頂車位額滿即封閉。請務必 07:45 出發！'
         }
       },
       {
         id: '105-a2',
         category: 'alert',
         name: '明日跨國前往克羅埃西亞整備',
-        shortInfo: '明日 08:00 退房出發，11:15 前至 Trieste Hertz 還車，銜接 12:20 跨國巴士',
+        shortInfo: '明日 08:30 退房，11:15 前至 Trieste Hertz 還車，銜接 12:20 跨國巴士',
         hasDetail: true,
         detail: {
           subtitle: '10/06 跨國交通銜接注意',
-          description: '明日需於 08:00–08:30 完成退房，經 A27 高速自駕前往 Trieste 還車（需滿油），步行至巴士總站搭乘 12:20 FlixBus N544 前往克羅埃西亞 Zagreb 與另外 2 位夥伴全員會合！'
+          description: '明日需於 08:30 完成退房，經 A27 高速自駕前往 Trieste 還車（需滿油），步行至巴士總站搭乘 12:20 FlixBus N544 前往克羅埃西亞 Zagreb 與另外 2 位夥伴全員會合！'
         }
       }
     ]
@@ -1167,8 +1543,8 @@ export const DAY_9: RawDayTwoLayer = {
   dayNum: 9,
   dateKey: '10/6',
   weekday: '二',
-  city: 'Trieste ➜ Zagreb',
-  subRoute: 'Chalet del Capriolo ➜ 自駕前往 Trieste ➜ Hertz 還車 ➜ FlixBus 跨國巴士 ➜ 抵達 Zagreb｜住 MANDA Heritage Hotel',
+  city: 'Trieste ➜ Zagreb (全員 5 人大會合)',
+  subRoute: 'Chalet del Capriolo 退房 ➜ 自駕至 Trieste ➜ Hertz 還車 ➜ FlixBus 跨國巴士 ➜ 抵達 Zagreb ➜ 亞得里亞海鮮晚餐｜住 MANDA Heritage Hotel',
   trafficItems: [
     {
       id: '106-t1',
@@ -1202,13 +1578,13 @@ export const DAY_9: RawDayTwoLayer = {
       category: 'traffic',
       time: '11:15',
       name: 'Hertz Trieste 提前還車 (銜接 12:20 跨國巴士)',
-      shortInfo: 'Piazza della Libertà 9 / Via Valdirivo 42',
+      shortInfo: 'Bus Station Silos, Piazza della Libertà 9',
       hasDetail: true,
       detail: {
         subtitle: '提前於 11:15 完成還車手續，安心銜接巴士',
-        address: 'Via Valdirivo 42, 34132 Trieste TS, Italy',
+        address: 'Piazza della Libertà 9 (Bus Station Silos) / Via Valdirivo 42, 34132 Trieste TS, Italy',
         phone: '+39 040 370420',
-        description: '在 Piazza della Libertà 9 巴士總站旁 Hertz 專用車道辦理還車手續。完成車輛檢查後步行 3 分鐘即達 Trieste 巴士總站。',
+        description: '在 Piazza della Libertà 9 巴士總站旁的 Hertz 專用車道辦理還車手續。完成車輛檢查後步行 3 分鐘即達 Trieste 巴士總站。',
         mapQuery: 'Hertz Trieste Via Valdirivo'
       }
     },
@@ -1220,17 +1596,63 @@ export const DAY_9: RawDayTwoLayer = {
       shortInfo: '12:20 出發 ➜ 15:50 抵達 Zagreb 總站｜車票確認號：338 494 7118',
       hasDetail: true,
       detail: {
-        subtitle: '跨國長途冷氣巴士 (約 3 小時 30 分)',
+        subtitle: '跨國長途冷氣巴士 (約 3 小時 30 分 · 座位 4B, 4C, 4D)',
         hours: '12:20–15:50',
-        ticket: '3 人車票確認號: 338 494 7118',
+        ticket: '3 人車票確認號: 338 494 7118 (總額 €62.13)',
         address: 'Autobusni Kolodvor Zagreb, Avenija Marina Držića 4, 10000 Zagreb, Croatia',
-        description: '12:20 從 Trieste 準時發車，舒適跨越斯洛維尼亞邊界，15:50 準時抵達克羅埃西亞首都 Zagreb 巴士總站。',
+        description: '12:20 從 Trieste 準時發車，舒適跨越斯洛維尼亞邊界，15:50 準時抵達克羅埃西亞首都 Zagreb 巴士總站。出站後使用 Bolt 叫車前往 MANDA Heritage Hotel。',
         mapQuery: 'Autobusni Kolodvor Zagreb'
+      }
+    },
+    {
+      id: '106-t5',
+      category: 'traffic',
+      time: '06:55',
+      name: '高雄 2 人組：班機抵達 Zagreb ＆ 飯店會合',
+      shortInfo: '卡達 QR215 06:55 抵達 Zagreb 機場 ➜ Bolt 叫車至飯店',
+      hasDetail: true,
+      detail: {
+        subtitle: '高雄夥伴順利抵達克羅埃西亞首都',
+        description: '10/5 由高雄出發，10/6 06:55 搭乘卡達航空 QR215 飛抵 Zagreb 機場，入境後搭乘 Bolt 叫車前往 MANDA Heritage Hotel 寄放行李並稍作休息，等待義大利 3 人組抵達！',
+        mapQuery: 'Zagreb Airport'
       }
     }
   ],
-  spotItems: [],
-  foodItems: [],
+  spotItems: [
+    {
+      id: '106-s1',
+      category: 'spot',
+      time: '17:00',
+      name: '札格雷布歷史下城區漫步 ＆ 耶拉齊恰廣場',
+      shortInfo: 'Ban Jelačić Square · 奧匈帝國優雅街景',
+      hasDetail: true,
+      detail: {
+        subtitle: '全員 5 人首次漫步克羅埃西亞首都心臟',
+        duration: '散步約 1 小時',
+        address: 'Trg bana Josipa Jelačića, 10000 Zagreb, Croatia',
+        description: '漫步於札格雷布最熱鬧的班·耶拉齊恰廣場，欣賞黃色古典路面電車與奧匈帝國風格建築，感受巴爾幹半島的獨特人文魅力。',
+        mapQuery: 'Ban Jelacic Square Zagreb'
+      }
+    }
+  ],
+  foodItems: [
+    {
+      id: '106-f1',
+      category: 'food',
+      time: '18:30',
+      name: 'Restoran Korčula 亞得里亞海鮮慶祝晚宴',
+      shortInfo: '全員 5 人相見歡慶祝大餐 · 藍鰭金槍魚塔塔 · 黑墨魚燉飯',
+      hasDetail: true,
+      detail: {
+        subtitle: '札格雷布市中心著名亞得里亞海鮮老字號',
+        hours: '12:00–00:00',
+        phone: '+385 1 4872 181',
+        address: 'ul. Nikole Tesle 17, 10000 Zagreb, Croatia',
+        description: '全員 5 人抵達克羅埃西亞首晚盛大慶祝晚宴！招牌推薦：亞得里亞海藍鰭金槍魚塔塔、傳統達爾馬提亞黑墨魚汁燉飯、香煎鱸魚排佐松露手工寬麵，搭配克羅埃西亞在地白葡萄酒。',
+        mapQuery: 'Restoran Korcula Zagreb'
+      }
+    }
+  ],
   hotelItems: [
     {
       id: '106-h1',
@@ -1240,9 +1662,9 @@ export const DAY_9: RawDayTwoLayer = {
       hasDetail: true,
       detail: {
         subtitle: 'Two-Bedroom Suite (4人) ＋ One-Bedroom Suite (1人) · 含早餐',
-        address: 'Vlaška ulica 88, 10000 Zagreb, Croatia',
+        address: 'Draškovićeva ulica 15a, 10000 Zagreb, Croatia',
         phone: '+385 1 4875 555',
-        description: '入住札格雷布下城區典雅歷史精品飯店，頭家娘與小花抵達大會合！Agoda 訂單：#1765100933、#1765102246。',
+        description: '入住札格雷布下城區典雅歷史精品飯店，高雄組與義大利組全員順利大會合！Agoda 訂單：#1765100933、#1765102246。',
         mapQuery: 'Manda Heritage Hotel Zagreb'
       }
     }

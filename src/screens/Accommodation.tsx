@@ -357,10 +357,33 @@ export function Accommodation() {
                             </div>
                           </div>
 
+                          {item.pinCode && (
+                            <div className="flex items-center justify-between gap-3 py-1 border-b border-slate-200/50 text-xs">
+                              <span className="text-slate-400 font-medium shrink-0 w-24">PIN 碼</span>
+                              <div className="flex items-center gap-2">
+                                <span className="font-mono font-bold text-slate-800 text-right">{item.pinCode}</span>
+                                <button 
+                                  onClick={() => handleCopy(item.pinCode!)}
+                                  className="text-slate-400 hover:text-slate-700 p-1 rounded-md transition-colors"
+                                  title="複製 PIN"
+                                >
+                                  {copiedCode === item.pinCode ? <Check size={14} className="text-emerald-600" /> : <Copy size={14} />}
+                                </button>
+                              </div>
+                            </div>
+                          )}
+
                           {item.bookingRef && (
                             <div className="flex items-center justify-between gap-3 py-1 border-b border-slate-200/50 text-xs">
                               <span className="text-slate-400 font-medium shrink-0 w-24">Reference 號</span>
                               <span className="font-mono font-bold text-slate-700">{item.bookingRef}</span>
+                            </div>
+                          )}
+
+                          {item.refundableDeposit && (
+                            <div className="flex items-start justify-between gap-3 py-1 border-b border-slate-200/50 text-xs">
+                              <span className="text-amber-700 font-medium shrink-0 w-24">損壞押金</span>
+                              <span className="text-right font-medium text-amber-800">{item.refundableDeposit}</span>
                             </div>
                           )}
 

@@ -121,7 +121,7 @@ export const CROATIA_ITINERARY_DAYS: DayItinerary[] = [
         badge: '5位成人 · 2間套房 · 含早餐',
         description: '入住札格雷布下城區典雅歷史精品飯店（Two-Bedroom Suite 4人 ＋ One-Bedroom Suite 1人，均含早餐）。頭家娘與小花抵達會合！Agoda 訂單：#1765100933、#1765102246。',
         duration: '入住休息',
-        address: 'Vlaška ulica 88, 10000 Zagreb, Croatia',
+        address: 'Draškovićeva ulica 15a, 10000 Zagreb, Croatia',
         mapQuery: 'Manda Heritage Hotel Zagreb',
         openingHours: '24 小時接待櫃檯 / 入住 15:00 後',
         phone: '+385 1 4875 555',
