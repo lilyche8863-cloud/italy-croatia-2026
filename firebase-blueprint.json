@@ -1,0 +1,44 @@
+{
+  "entities": {
+    "Transaction": {
+      "title": "Budget Transaction",
+      "description": "A record of income or expense in the public fund.",
+      "type": "object",
+      "properties": {
+        "amount": { "type": "number", "description": "Amount in CNY/TWD" },
+        "type": { "type": "string", "enum": ["income", "expense"], "description": "Type of transaction" },
+        "category": { "type": "string", "description": "Category (e.g., Food, Stay, Transit)" },
+        "description": { "type": "string", "description": "Detailed description" },
+        "date": { "type": "string", "format": "date-time", "description": "Transaction date" },
+        "addedBy": { "type": "string", "description": "User ID/Name who added it" },
+        "payer": { "type": "string", "description": "Who paid the amount" },
+        "splitWith": { "type": "array", "description": "List of people who split this transaction" }
+      },
+      "required": ["amount", "type", "category", "date", "payer", "splitWith"]
+    },
+    "Todo": {
+      "title": "Todo Item",
+      "description": "A collaborative task or item to prepare for the trip.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "The description or task content" },
+        "completed": { "type": "boolean", "description": "Whether the task is completed" },
+        "assignee": { "type": "string", "description": "The person assigned to the task ('昱惠', '小驊', '小花' or '未分配')" },
+        "category": { "type": "string", "description": "Category of the task" },
+        "date": { "type": "string", "description": "Target date for completion" },
+        "addedBy": { "type": "string", "description": "Who added this todo" }
+      },
+      "required": ["title", "completed", "addedBy"]
+    }
+  },
+  "firestore": {
+    "transactions/{transactionId}": {
+      "schema": "Transaction",
+      "description": "Collection of all income and expense transactions."
+    },
+    "todos/{todoId}": {
+      "schema": "Todo",
+      "description": "Collection of collaborative tasks to prepare for the trip."
+    }
+  }
+}
