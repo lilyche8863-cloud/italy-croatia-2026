@@ -30,7 +30,37 @@ import {
   CATEGORY_CONFIG,
   CategoryType,
 } from '../data/twoLayerItineraryData';
+import { ACCOMMODATIONS, AccommodationItem } from '../data/travelPlan';
 import { ItineraryDetailSheet } from '../components/ItineraryDetailSheet';
+
+function getStayDetails(hotelName?: string, dateKey?: string): { stay: AccommodationItem; nightIndex: number } | null {
+  if (!dateKey || !dateKey.includes('/')) return null;
+  const parts = dateKey.split('/');
+  const mm = parts[0].padStart(2, '0');
+  const dd = parts[1].padStart(2, '0');
+  const targetDate = `2026/${mm}/${dd}`;
+
+  let stay: AccommodationItem | undefined;
+  if (hotelName) {
+    const clean = hotelName.replace(/入住：|回到住宿：|返回住宿：|回到\s*|（.*?）|\(.*?\)/g, '').trim().toLowerCase();
+    const cleanNoSuffix = clean.replace(/hotel|house|villa|apartment/g, '').trim();
+    stay = ACCOMMODATIONS.find(a => {
+      const aLower = a.name.toLowerCase();
+      return aLower.includes(clean) || clean.includes(aLower) ||
+        (cleanNoSuffix.length >= 3 && aLower.includes(cleanNoSuffix));
+    });
+  }
+  if (!stay) {
+    stay = ACCOMMODATIONS.find(a => targetDate >= a.checkInDate && targetDate < a.checkOutDate);
+  }
+  if (!stay) return null;
+
+  const checkInTime = new Date(stay.checkInDate.replace(/\//g, '-')).getTime();
+  const currentTime = new Date(targetDate.replace(/\//g, '-')).getTime();
+  const nightIndex = Math.max(1, Math.round((currentTime - checkInTime) / (1000 * 60 * 60 * 24)) + 1);
+
+  return { stay, nightIndex };
+}
 
 export function Itinerary() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -524,100 +554,158 @@ export function Itinerary() {
         </section>
 
         {/* ======================================================== */}
-        {/* 區塊 3: 住宿 (Accommodation Section)                     */}
+        {/* 區塊 3: 住宿 (Lodging Section)                           */}
         {/* ======================================================== */}
-        <section className="bg-white rounded-2xl p-4 sm:p-5 border border-stone-200/90 shadow-2xs space-y-3.5">
-          <div className="flex items-center justify-between pb-3 border-b border-stone-100">
-            <div className="flex items-center gap-2">
-              <span className="w-6 h-6 rounded-md bg-emerald-100 text-emerald-800 flex items-center justify-center">
-                <Hotel className="w-3.5 h-3.5" />
-              </span>
-              <h2 className="font-bold text-sm sm:text-base text-stone-900 tracking-tight">
-                3. 住宿
-              </h2>
+        {activeDay.hotelItems.length > 0 && (
+          <section className="bg-white rounded-2xl p-4 sm:p-5 border border-stone-200/90 shadow-2xs space-y-3.5">
+            <div className="flex items-center justify-between pb-3 border-b border-stone-100">
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-6 rounded-md bg-emerald-100 text-emerald-800 flex items-center justify-center">
+                  <Hotel className="w-3.5 h-3.5" />
+                </span>
+                <h2 className="font-bold text-sm sm:text-base text-stone-900 tracking-tight">
+                  3. 住宿
+                </h2>
+              </div>
+              {(() => {
+                const stayInfo = getStayDetails(activeDay.hotelItems[0]?.name, activeDay.dateKey);
+                if (!stayInfo) return null;
+                const { stay, nightIndex } = stayInfo;
+                const badgeText = stay.nights > 1
+                  ? (nightIndex > 1 ? `續住第 ${nightIndex} 晚 · 不換飯店` : `入住首晚 · 共 ${stay.nights} 晚連住`)
+                  : '入住 1 晚';
+                return (
+                  <span className="text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-100">
+                    {badgeText}
+                  </span>
+                );
+              })()}
             </div>
-            <span className="text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100">
-              連住 2 晚 · 不換飯店
-            </span>
-          </div>
 
-          {/* 住宿卡片 */}
-          <div className="space-y-3">
-            {activeDay.hotelItems.map((hotel, idx) => {
-              const isClickable = hotel.hasDetail;
+            {/* 住宿卡片 */}
+            <div className="space-y-3">
+              {activeDay.hotelItems.map((hotel, idx) => {
+                const stayInfo = getStayDetails(hotel.name, activeDay.dateKey);
+                const stay = stayInfo?.stay;
+                const nightIndex = stayInfo?.nightIndex || 1;
+                const isClickable = hotel.hasDetail || !!stay;
 
-              return (
-                <div
-                  key={hotel.id || idx}
-                  onClick={() => isClickable && setActiveItem(hotel)}
-                  className="rounded-xl border border-emerald-200 bg-linear-to-b from-emerald-50/40 to-white p-4 shadow-2xs hover:border-emerald-300 transition-all cursor-pointer group"
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="space-y-1 min-w-0 flex-1">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-700 text-white shadow-2xs">
-                          {activeDay.dayNum === 2 ? '續住第 2 晚 · 不換飯店' : '入住 2 晚 · 3 位成人'}
-                        </span>
-                        <span className="text-xs font-bold text-emerald-900 bg-emerald-100 px-2 py-0.5 rounded">
-                          小型套房 (Junior Suite) · 含早餐
-                        </span>
-                        <span className="text-xs font-bold text-stone-700 bg-stone-100 px-2 py-0.5 rounded">
-                          免費私人停車
-                        </span>
+                // 若為機上飛行或無特定飯店安排 (如 Day 0)
+                if (!stay) {
+                  return (
+                    <div
+                      key={hotel.id || idx}
+                      onClick={() => isClickable && setActiveItem(hotel)}
+                      className="rounded-xl border border-stone-200 bg-stone-50/50 p-4"
+                    >
+                      <h3 className="text-base font-bold text-stone-900">{hotel.name}</h3>
+                      <p className="text-xs text-stone-600 mt-1">{hotel.shortInfo || '長榮直飛夜航班機，機上過夜休息'}</p>
+                    </div>
+                  );
+                }
+
+                const stayBadge = stay.nights > 1
+                  ? (nightIndex > 1 ? `續住第 ${nightIndex} 晚 · 不換飯店` : `連住 ${stay.nights} 晚 · ${stay.guestsText}`)
+                  : `入住 1 晚 · ${stay.guestsText}`;
+
+                const itemWithStayDetail: ItineraryItem = {
+                  ...hotel,
+                  name: hotel.name,
+                  detail: {
+                    ...hotel.detail,
+                    subtitle: `${stay.roomType} · ${stay.guestsText}`,
+                    hours: `入住 ${stay.checkInTime} / 退房 ${stay.checkOutTime}`,
+                    address: stay.address || hotel.detail?.address,
+                    phone: stay.phone || hotel.detail?.phone,
+                    parking: stay.hasParking ? '設有私人專屬停車設施' : (hotel.detail?.parking || '詳見訂房資訊'),
+                    bookingCode: stay.bookingCode ? `${stay.channel} (${stay.bookingCode})` : hotel.detail?.bookingCode,
+                    description: stay.desc || hotel.detail?.description,
+                    price: `${stay.paymentStatus} ｜ ${stay.meals || ''}`,
+                    notice: stay.notice || hotel.detail?.notice,
+                  }
+                };
+
+                return (
+                  <div
+                    key={hotel.id || idx}
+                    onClick={() => isClickable && setActiveItem(itemWithStayDetail)}
+                    className="rounded-xl border border-emerald-200 bg-linear-to-b from-emerald-50/40 to-white p-4 shadow-2xs hover:border-emerald-300 transition-all cursor-pointer group"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="space-y-1 min-w-0 flex-1">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-700 text-white shadow-2xs">
+                            {stayBadge}
+                          </span>
+                          <span className="text-xs font-bold text-emerald-900 bg-emerald-100 px-2 py-0.5 rounded">
+                            {stay.roomType}
+                          </span>
+                          {stay.meals && (
+                            <span className="text-xs font-bold text-amber-900 bg-amber-100/90 px-2 py-0.5 rounded">
+                              {stay.meals.split('(')[0].trim()}
+                            </span>
+                          )}
+                          {stay.hasParking && (
+                            <span className="text-xs font-bold text-stone-700 bg-stone-100 px-2 py-0.5 rounded">
+                              免費私人停車
+                            </span>
+                          )}
+                        </div>
+                        <h3 className="text-base sm:text-lg font-bold text-stone-900 pt-1">
+                          {hotel.name}
+                        </h3>
+                        <p className="text-xs text-stone-600 font-medium">
+                          地址：{stay.address || hotel.detail?.address || ''}
+                        </p>
                       </div>
-                      <h3 className="text-base sm:text-lg font-bold text-stone-900 pt-1">
-                        {hotel.name}
-                      </h3>
-                      <p className="text-xs text-stone-600 font-medium">
-                        地址：{hotel.detail?.address || 'Via Einaudi 4, 25010 Limone sul Garda, Italy'}
-                      </p>
-                    </div>
-                    <span className="text-xl font-bold text-emerald-700 shrink-0 group-hover:translate-x-1 transition-transform">
-                      ›
-                    </span>
-                  </div>
-
-                  {/* 房型特色標籤 */}
-                  <div className="mt-3 flex flex-wrap gap-2 text-xs">
-                    <span className="px-2.5 py-1 rounded-md bg-white border border-emerald-200 text-emerald-900 font-bold">
-                      🏞️ 湖景
-                    </span>
-                    <span className="px-2.5 py-1 rounded-md bg-white border border-emerald-200 text-emerald-900 font-bold">
-                      🏊 泳池景觀
-                    </span>
-                    <span className="px-2.5 py-1 rounded-md bg-white border border-emerald-200 text-emerald-900 font-bold">
-                      ☕ 陽台／露台
-                    </span>
-                    <span className="px-2.5 py-1 rounded-md bg-white border border-emerald-200 text-emerald-900 font-bold">
-                      🥐 含每日早餐
-                    </span>
-                    <span className="px-2.5 py-1 rounded-md bg-white border border-emerald-200 text-emerald-900 font-bold">
-                      🅿️ 免費私人停車
-                    </span>
-                  </div>
-
-                  {/* 入住時間與特別提示 */}
-                  <div className="mt-3 pt-3 border-t border-emerald-100 text-xs text-stone-700 grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    <div>
-                      <span className="text-[10px] text-stone-400 block font-bold">入住與退房時間</span>
-                      <span className="font-semibold text-stone-900">
-                        入住：14:00–22:00 ｜ 退房：07:30–10:30
+                      <span className="text-xl font-bold text-emerald-700 shrink-0 group-hover:translate-x-1 transition-transform">
+                        ›
                       </span>
                     </div>
-                    <div>
-                      <span className="text-[10px] text-stone-400 block font-bold">連住優勢</span>
-                      <span className="font-semibold text-emerald-800">
-                        {activeDay.dayNum === 2
-                          ? '這天晚上仍住 Aria Life Hotel，不換飯店，省去打包與搬運行李時間！'
-                          : '連續入住 2 晚，充分放鬆適應時差與湖濱度假步調。'}
-                      </span>
+
+                    {/* 房型特色標籤 */}
+                    {stay.amenityHighlights && stay.amenityHighlights.length > 0 && (
+                      <div className="mt-3 flex flex-wrap gap-2 text-xs">
+                        {stay.amenityHighlights.map((amenity, aIdx) => (
+                          <span
+                            key={aIdx}
+                            className="px-2.5 py-1 rounded-md bg-white border border-emerald-200 text-emerald-900 font-bold"
+                          >
+                            {amenity}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* 入住時間與特別提示 */}
+                    <div className="mt-3 pt-3 border-t border-emerald-100 text-xs text-stone-700 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      <div>
+                        <span className="text-[10px] text-stone-400 block font-bold">入住與退房時間</span>
+                        <span className="font-semibold text-stone-900">
+                          入住：{stay.checkInTime} ｜ 退房：{stay.checkOutTime}
+                        </span>
+                        {stay.nights > 1 && (
+                          <span className="text-[11px] text-emerald-700 block font-medium mt-0.5">
+                            {nightIndex > 1
+                              ? `續住第 ${nightIndex} 晚 · 不換飯店免搬行李`
+                              : `首晚入住 · 共 ${stay.nights} 晚連住`}
+                          </span>
+                        )}
+                      </div>
+                      <div>
+                        <span className="text-[10px] text-stone-400 block font-bold">訂單確認資訊</span>
+                        <div className="font-semibold text-emerald-900 flex items-center gap-1.5 flex-wrap">
+                          <span>{stay.channel} #{stay.bookingCode}</span>
+                          <span className="text-xs text-emerald-700 font-medium">({stay.paymentStatus})</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-        </section>
+                );
+              })}
+            </div>
+          </section>
+        )}
 
         {/* ======================================================== */}
         {/* 區塊 4: 景點 (Spots Section)                            */}

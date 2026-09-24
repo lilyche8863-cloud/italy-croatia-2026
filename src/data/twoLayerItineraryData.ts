@@ -3,6 +3,18 @@ import { DayItinerary, TimelineNode } from './itineraryTypes';
 
 export type CategoryType = 'traffic' | 'spot' | 'food' | 'hotel' | 'alert';
 
+export interface PriceTicketItem {
+  title: string;
+  cost: string;
+  detail?: string;
+}
+
+export interface DaySummarySection {
+  overview?: string;
+  badges?: string[];
+  suggestedFlow?: string[];
+}
+
 export interface ItineraryItem {
   id: string;
   category: CategoryType;
@@ -10,6 +22,10 @@ export interface ItineraryItem {
   time?: string;
   name: string;
   shortInfo?: string;
+  cardBadge?: string;
+  isFerryCard?: boolean;
+  isCarRentalCard?: boolean;
+  isCableCarCard?: boolean;
   hasDetail: boolean;
   detail?: {
     subtitle?: string;
@@ -26,6 +42,7 @@ export interface ItineraryItem {
     reservationUrl?: string;
     parking?: string;
     bookingCode?: string;
+    pinCode?: string;
     price?: string;
     description?: string;
     notice?: string;
@@ -39,6 +56,8 @@ export interface DayTwoLayer {
   weekday: string;     // e.g. "一"
   city: string;        // e.g. "Limone"
   subRoute: string;    // e.g. "米蘭機場 ➜ Limone｜住 Aria Life Hotel"
+  summarySection?: DaySummarySection;
+  priceTicketItems?: PriceTicketItem[];
   orderedItems: ItineraryItem[]; // 當日依造訪先後順序排列之完整項目 (編號 1, 2, 3...)
   trafficItems: ItineraryItem[];
   spotItems: ItineraryItem[];
@@ -1684,6 +1703,11 @@ export const DAY_9: RawDayTwoLayer = {
   ]
 };
 
+// ==========================================
+// 克羅埃西亞行程 (Day 10 ~ Day 17，10/7 ~ 10/14)
+// 由 croatiaItinerary.ts 統一維護並動態轉換為二層結構
+// ==========================================
+
 // 將克羅埃西亞行程 (Day 9 ~ 26) 動態轉換為二層式結構
 const CROATIA_TWO_LAYER_DAYS: RawDayTwoLayer[] = CROATIA_ITINERARY_DAYS.map((d: DayItinerary) => {
   const trafficItems: ItineraryItem[] = [];
@@ -1757,15 +1781,135 @@ const CROATIA_TWO_LAYER_DAYS: RawDayTwoLayer[] = CROATIA_ITINERARY_DAYS.map((d: 
     else alertItems.push(item);
   });
 
-  const cityShort = d.cityRegion.split('➜')[0].split('·')[0].split('(')[0].trim();
+  const CITY_DISPLAY_MAP: Record<number, string> = {
+    10: 'Bled',
+    11: 'Motovun',
+    12: 'Pula',
+    13: 'Motovun',
+    14: 'Plitvice',
+    15: 'Plitvice',
+    16: 'Split',
+    17: 'Split',
+    18: 'Hvar',
+    19: 'Tivat',
+    20: 'Kotor',
+    21: 'Dubrovnik',
+    22: 'Dubrovnik',
+    23: 'Dubrovnik',
+    24: 'Malpensa',
+    25: 'Milan',
+    26: 'Malpensa'
+  };
+  const cityShort = CITY_DISPLAY_MAP[d.dayNum] || d.cityRegion.split('➜')[0].split('·')[0].split('(')[0].trim();
   const weekdayShort = d.weekday.split(' ')[0].replace('星期', '');
+
+  const summarySection: DaySummarySection = {
+    overview: d.chineseSubtitle || d.themeTitle || d.cityRegion,
+    badges: d.highlights || [],
+    suggestedFlow: d.todayRoute || []
+  };
+
+  const priceTicketItems: PriceTicketItem[] = [];
+  if (d.dayNum === 10) {
+    priceTicketItems.push(
+      { title: '斯洛維尼亞 e-vinjeta (2A)', cost: '€16.00', detail: '一般轎車、SUV、多數小客車每週通行票' },
+      { title: '斯洛維尼亞 e-vinjeta (2B)', cost: '€32.00', detail: '前軸高度超過 1.3 m 高車／部分 MPV' },
+      { title: 'Hotel Park Bled 停車費', cost: '約 €12/天', detail: '布萊德湖畔私人停車場' }
+    );
+  } else if (d.dayNum === 11) {
+    priceTicketItems.push(
+      { title: 'Ljubljana 城堡纜車來回票', cost: '約 €6～12', detail: '中央市場 Krekov trg 搭乘' },
+      { title: 'Villa Benvenuti 現金押金', cost: 'EUR 300', detail: '入住時收取現金，退房全額退還' }
+    );
+  } else if (d.dayNum === 12) {
+    priceTicketItems.push(
+      { title: '普拉競技場門票', cost: '約 €10/人', detail: '入內參觀古羅馬角鬥士場與地下博物館' },
+      { title: 'Parking Riva 停車費', cost: '約 €1.50/小時', detail: 'Zone 2A，停 5～6 小時約 €7.50～9' }
+    );
+  } else if (d.dayNum === 13) {
+    priceTicketItems.push(
+      { title: 'Livade 松露獵尋活動', cost: '已預約 13:30', detail: '獵人與松露犬森林尋寶' }
+    );
+  } else if (d.dayNum === 14) {
+    priceTicketItems.push(
+      { title: '里耶卡 Parkiralište Delta', cost: '約 €0.80/小時', detail: '市中心大型收費停車場' },
+      { title: 'Rastoke 水車村停車費', cost: '約 €2.00/小時', detail: 'Zone 1 景區停車場' }
+    );
+  } else if (d.dayNum === 15) {
+    priceTicketItems.push(
+      { title: '十六湖國家公園門票 (Entrance 2)', cost: '€23.00/人', detail: '預約 09:00～10:00 入園，含接駁車與渡輪 (票號 26439385626)' },
+      { title: 'Entrance 2 停車場', cost: '約 €1.50/小時', detail: '國家公園第二入口停車場' }
+    );
+  } else if (d.dayNum === 16) {
+    priceTicketItems.push(
+      { title: '扎達爾老城停車 (Parking Ravnice)', cost: '約 €1.50/小時', detail: '陸門與老城外圍停車場' }
+    );
+  } else if (d.dayNum === 17) {
+    priceTicketItems.push(
+      { title: '特羅吉爾 T1 Parking', cost: '計時收費', detail: '24 小時開放，步行過木橋即入老城' },
+      { title: '聖勞倫斯大教堂門票', cost: '約 €5/人', detail: 'UNESCO 核心建築與 Radovan 雕刻大門' }
+    );
+  } else if (d.dayNum === 18) {
+    priceTicketItems.push(
+      { title: 'Jadrolinija 635 渡輪 (Split ➜ Stari Grad)', cost: '已預訂', detail: '08:30 → 10:20 (航程 110 分鐘)' },
+      { title: '聖史蒂芬主教座堂門票', cost: '€2.00/人', detail: '09:00–12:30、17:00–19:30' },
+      { title: '特弗爾達利堡 Tvrdalj 門票', cost: '€5.00/人', detail: '詩人 Petar Hektorović 文藝復興宅邸' },
+      { title: 'Dolac 1 公共停車場', cost: '計時收費', detail: '老城外圍 Dolac 停車場 (座標 5CFW+72)' }
+    );
+  } else if (d.dayNum === 19) {
+    priceTicketItems.push(
+      { title: 'Jadrolinija 632 渡輪 (Sućuraj ➜ Drvenik)', cost: '已含車輛', detail: '09:30 → 10:00 (航程 30 分鐘)' },
+      { title: 'Mali Ston 歐洲扁牡蠣品嚐', cost: '依點餐計費', detail: '珍貴 OSTREA EDULIS 歐洲扁牡蠣' },
+      { title: 'Kamenari–Lepetane 車渡', cost: '約 €5/車', detail: 'Verige 海峽汽車渡輪 (航程約 10 分鐘)' }
+    );
+  } else if (d.dayNum === 20) {
+    priceTicketItems.push(
+      { title: '岩上聖母島往返接駁船', cost: '約 €5～10/人', detail: 'Perast 碼頭搭乘小船往返 (島上 30～45 分)' },
+      { title: 'Perast 北側停車費', cost: '計時收費', detail: 'Parking Hotel Heritage Grand Perast' }
+    );
+  } else if (d.dayNum === 21) {
+    priceTicketItems.push(
+      { title: 'Cavtat Parking Lot 停車費', cost: '€2.00/小時', detail: '隔壁 Studenac 商店購物可抵一小時' },
+      { title: 'Dubrovnik Pass 三日卡', cost: '€50.00/人', detail: '含城牆、總督宮、斯邦札宮與公車乘車券' }
+    );
+  } else if (d.dayNum === 22) {
+    priceTicketItems.push(
+      { title: 'Dubrovnik Pass 三日券', cost: '已購買', detail: '涵蓋城牆、總督宮、修道院博物館與 Libertas 公車' },
+      { title: 'Fort Lovrijenac 洛夫里耶納茨要塞', cost: 'Pass 免費', detail: '憑城牆門票或 Dubrovnik Pass 免費入內' },
+      { title: 'Dubrovnik Cable Car / Uber', cost: '來回 €30 / Uber約€25', detail: '登 Srd 山頂俯瞰老城海天夕陽' }
+    );
+  } else if (d.dayNum === 23) {
+    priceTicketItems.push(
+      { title: '杜布羅夫尼克古城牆 (City Walls)', cost: 'Pass 涵蓋', detail: '全長 2 公里 · 最高 25 公尺 · 敏雀塔巡禮' },
+      { title: 'Sponza Palace 斯邦札宮', cost: 'Pass 涵蓋', detail: '1667 大地震倖存建築 · 文藝復興迴廊' },
+      { title: 'Rector’s Palace 總督宮', cost: 'Pass 涵蓋', detail: '拉古薩共和國行政中心與總督官邸' }
+    );
+  } else if (d.dayNum === 24) {
+    priceTicketItems.push(
+      { title: 'UNI RENT 還車手續', cost: '已付清', detail: '12:30 DBV 杜布羅夫尼克機場完成驗收還車' },
+      { title: '瑞安航空 FR5935 (DBV ➜ BGY)', cost: '已付清', detail: '14:25 起飛 16:00 抵達 (直飛 1h35m · 5人含行李)' },
+      { title: 'Hertz BGY 機場取車', cost: '已付清', detail: '17:00 取車 · 合約單號: L717EEC42A9 (含全險)' }
+    );
+  } else if (d.dayNum === 25) {
+    priceTicketItems.push(
+      { title: 'Serravalle Designer Outlet', cost: '免費入場', detail: '義大利最大 OUTLET · 300+ 品牌 30%～70% 折扣' },
+      { title: '購物退稅 (滿 €70 可退)', cost: '退稅單記得拿', detail: '結帳主動索取 Tax Free 單據與核對姓名護照' }
+    );
+  } else if (d.dayNum === 26) {
+    priceTicketItems.push(
+      { title: 'MXP T1 Hertz 還車', cost: 'P2 Floor -1', detail: '跟隨 Autonoleggi 指標駛入 P2 停車場 Floor -1' },
+      { title: '米蘭機場 12 號櫃檯退稅', cost: '先退稅再托運', detail: '滿 €70 退稅 · Global Blue / Planet 蓋章驗證' }
+    );
+  }
 
   return {
     dayNum: d.dayNum,
-    dateKey: `${parseInt(d.month)}/${parseInt(d.day)}`,
+    dateKey: `${parseInt(d.month, 10)}/${parseInt(d.day, 10)}`,
     weekday: weekdayShort,
     city: cityShort,
-    subRoute: `${d.cityRegion}｜住 ${d.hotelName}`,
+    subRoute: `${d.themeTitle || d.cityRegion}｜住 ${d.hotelName}`,
+    summarySection,
+    priceTicketItems,
     trafficItems,
     spotItems,
     foodItems,
@@ -1811,6 +1955,8 @@ export function buildOrderedDay(day: RawDayTwoLayer): DayTwoLayer {
 
   return {
     ...day,
+    summarySection: day.summarySection,
+    priceTicketItems: day.priceTicketItems,
     orderedItems: [
       ...day.trafficItems,
       ...day.spotItems,
@@ -1820,11 +1966,12 @@ export function buildOrderedDay(day: RawDayTwoLayer): DayTwoLayer {
   };
 }
 
-// 只保留 9/27 - 10/6 日行程 (共 10 天，Day 0 ~ Day 9)，其餘日期全部排除，並徹底刪除所有 AI 推薦之餐廳/冰淇淋/小巷教堂/散步點
+// 包含 9/27 - 10/23 完整行程 (共 27 天，Day 0 ~ Day 26)
 export const TWO_LAYER_DAYS: DayTwoLayer[] = [
   buildOrderedDay(DAY_0),
   ...ITALY_TWO_LAYER_DAYS.map(buildOrderedDay),
-  buildOrderedDay(DAY_9)
+  buildOrderedDay(DAY_9),
+  ...CROATIA_TWO_LAYER_DAYS.filter((d) => d.dayNum >= 10 && d.dayNum <= 26).map(buildOrderedDay)
 ];
 
 export const CATEGORY_CONFIG = {

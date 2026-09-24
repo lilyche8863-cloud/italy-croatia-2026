@@ -343,8 +343,8 @@ export function Accommodation() {
                             </div>
                           </div>
 
-                          <div className="flex items-center justify-between gap-3 py-1 border-b border-slate-200/50">
-                            <span className="text-slate-400 font-medium shrink-0 w-24">訂單確認碼</span>
+                          <div className="flex items-center justify-between gap-3 py-1.5 border-b border-slate-200/50">
+                            <span className="text-slate-500 font-semibold shrink-0 w-24">訂單確認碼</span>
                             <div className="flex items-center gap-2">
                               <span className="font-mono font-bold text-slate-900 text-right">{item.bookingCode}</span>
                               <button 
@@ -356,22 +356,6 @@ export function Accommodation() {
                               </button>
                             </div>
                           </div>
-
-                          {item.pinCode && (
-                            <div className="flex items-center justify-between gap-3 py-1 border-b border-slate-200/50 text-xs">
-                              <span className="text-slate-400 font-medium shrink-0 w-24">PIN 碼</span>
-                              <div className="flex items-center gap-2">
-                                <span className="font-mono font-bold text-slate-800 text-right">{item.pinCode}</span>
-                                <button 
-                                  onClick={() => handleCopy(item.pinCode!)}
-                                  className="text-slate-400 hover:text-slate-700 p-1 rounded-md transition-colors"
-                                  title="複製 PIN"
-                                >
-                                  {copiedCode === item.pinCode ? <Check size={14} className="text-emerald-600" /> : <Copy size={14} />}
-                                </button>
-                              </div>
-                            </div>
-                          )}
 
                           {item.bookingRef && (
                             <div className="flex items-center justify-between gap-3 py-1 border-b border-slate-200/50 text-xs">
