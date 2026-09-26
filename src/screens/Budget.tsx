@@ -33,13 +33,13 @@ export interface Transaction {
 }
 
 export const CATEGORIES = [
-  { label: '飯店住宿', value: 'Stay', icon: BedDouble, color: 'bg-teal-50 text-teal-700 border-teal-200 dark:bg-teal-950/30 dark:text-teal-400' },
-  { label: '交通接駁', value: 'Transit', icon: Car, color: 'bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-950/30 dark:text-blue-400' },
-  { label: '機票航段', value: 'Flight', icon: Plane, color: 'bg-indigo-50 text-indigo-700 border-indigo-200 dark:bg-indigo-950/30 dark:text-indigo-400' },
-  { label: '餐飲美食', value: 'Food', icon: Tag, color: 'bg-orange-50 text-orange-700 border-orange-200 dark:bg-orange-950/30 dark:text-orange-400' },
-  { label: '景點門票', value: 'Play', icon: Tag, color: 'bg-purple-50 text-purple-700 border-purple-200 dark:bg-purple-950/30 dark:text-purple-400' },
-  { label: '購物紀念', value: 'Shopping', icon: Tag, color: 'bg-pink-50 text-pink-700 border-pink-200 dark:bg-pink-950/30 dark:text-pink-400' },
-  { label: '其他雜項', value: 'Others', icon: Tag, color: 'bg-gray-50 text-gray-700 border-gray-200 dark:bg-gray-800/40 dark:text-gray-400' },
+  { label: '飯店住宿', value: 'Stay', icon: BedDouble, color: 'bg-teal-50 text-teal-800 border-teal-200' },
+  { label: '交通接駁', value: 'Transit', icon: Car, color: 'bg-blue-50 text-blue-800 border-blue-200' },
+  { label: '機票航段', value: 'Flight', icon: Plane, color: 'bg-indigo-50 text-indigo-800 border-indigo-200' },
+  { label: '餐飲美食', value: 'Food', icon: Tag, color: 'bg-orange-50 text-orange-800 border-orange-200' },
+  { label: '景點門票', value: 'Play', icon: Tag, color: 'bg-purple-50 text-purple-800 border-purple-200' },
+  { label: '購物紀念', value: 'Shopping', icon: Tag, color: 'bg-pink-50 text-pink-800 border-pink-200' },
+  { label: '其他雜項', value: 'Others', icon: Tag, color: 'bg-stone-100 text-stone-800 border-stone-200' },
 ];
 
 export interface PlannedBudgetItem {
@@ -613,25 +613,35 @@ export function Budget() {
   const settlements = calculateSettlements();
 
   return (
-    <div className="mt-20 px-4 pb-44 max-w-4xl mx-auto space-y-6">
+    <div className="mt-20 px-3.5 sm:px-4 pb-52 sm:pb-44 max-w-4xl mx-auto space-y-5 sm:space-y-6 overflow-x-hidden">
       {/* Top Navigation & Actions */}
-      <div className="flex items-center justify-between">
-        <div>
-          <span className="text-primary font-black text-xs uppercase tracking-widest block font-mono">
-            BUDGET & EXPENSES
-          </span>
-          <h1 className="text-2xl sm:text-3xl font-black text-on-surface tracking-tight">
-            旅費總覽與分攤試算
-          </h1>
+      <div className="space-y-3 sm:space-y-0 sm:flex sm:items-center sm:justify-between sm:gap-4">
+        {/* Title & Home button row on mobile */}
+        <div className="flex items-center justify-between gap-2">
+          <div className="min-w-0">
+            <span className="text-primary font-black text-[11px] sm:text-xs uppercase tracking-widest block font-mono">
+              BUDGET & EXPENSES
+            </span>
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-on-surface tracking-tight leading-snug">
+              旅費總覽與分攤試算
+            </h1>
+          </div>
+          <button 
+            onClick={() => navigate('/')}
+            className="sm:hidden p-2 rounded-xl bg-surface-container-lowest border border-outline-variant/15 shadow-xs hover:bg-surface-container-low transition-colors shrink-0"
+            title="回首頁"
+          >
+            <ChevronLeft size={18} className="text-on-surface" />
+          </button>
         </div>
         
-        {/* Currency Switcher & Home Button */}
-        <div className="flex items-center gap-2">
-          <div className="bg-surface-container-high p-1 rounded-xl flex items-center border border-outline-variant/15 text-xs font-bold font-mono">
+        {/* Currency Switcher & Home Button on Desktop */}
+        <div className="flex items-center justify-between sm:justify-end gap-2">
+          <div className="bg-surface-container-high p-1 rounded-xl flex items-center border border-outline-variant/15 text-xs font-bold font-mono w-full sm:w-auto">
             <button
               onClick={() => setCurrency('EUR')}
               className={cn(
-                "px-2.5 py-1 rounded-lg transition-all",
+                "flex-1 sm:flex-initial px-3 py-1.5 rounded-lg transition-all text-center whitespace-nowrap text-[11px] sm:text-xs",
                 currency === 'EUR' ? "bg-primary text-white shadow-xs" : "text-on-surface-variant hover:text-on-surface"
               )}
             >
@@ -640,7 +650,7 @@ export function Budget() {
             <button
               onClick={() => setCurrency('TWD')}
               className={cn(
-                "px-2.5 py-1 rounded-lg transition-all",
+                "flex-1 sm:flex-initial px-3 py-1.5 rounded-lg transition-all text-center whitespace-nowrap text-[11px] sm:text-xs",
                 currency === 'TWD' ? "bg-primary text-white shadow-xs" : "text-on-surface-variant hover:text-on-surface"
               )}
             >
@@ -650,7 +660,7 @@ export function Budget() {
 
           <button 
             onClick={() => navigate('/')}
-            className="p-2.5 rounded-2xl bg-surface-container-lowest border border-outline-variant/10 shadow-xs hover:bg-surface-container-low transition-colors"
+            className="hidden sm:flex p-2.5 rounded-2xl bg-surface-container-lowest border border-outline-variant/10 shadow-xs hover:bg-surface-container-low transition-colors shrink-0"
             title="回首頁"
           >
             <ChevronLeft size={18} className="text-on-surface" />
@@ -659,10 +669,10 @@ export function Budget() {
       </div>
 
       {/* Segmented Rules Notice */}
-      <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-secondary/10 p-4 rounded-2xl border border-primary/20 space-y-2">
-        <div className="flex items-center justify-between">
+      <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-secondary/10 p-3.5 sm:p-4 rounded-2xl border border-primary/20 space-y-2 w-full">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
           <span className="text-xs font-black text-primary flex items-center gap-1.5 font-mono">
-            <ShieldCheck size={16} /> 核心拆帳原則（分段人數配置）
+            <ShieldCheck size={16} className="shrink-0" /> 核心拆帳原則（分段人數配置）
           </span>
           <span className="text-[11px] text-on-surface-variant font-mono">
             匯率參考 1 EUR ≈ {EUR_TO_TWD} TWD · 1 USD ≈ {USD_TO_TWD} TWD
@@ -691,45 +701,42 @@ export function Budget() {
       </div>
 
       {/* Main Feature Tabs */}
-      <div className="grid grid-cols-3 border-b border-outline-variant/15">
+      <div className="grid grid-cols-3 border-b border-outline-variant/15 w-full">
         <button
           onClick={() => setActiveTab('planned')}
           className={cn(
-            "py-2.5 sm:py-3 text-[14px] sm:text-sm font-bold flex items-center justify-center gap-1 sm:gap-1.5 border-b-2 transition-all whitespace-nowrap",
+            "py-2.5 sm:py-3 text-[12px] sm:text-sm font-bold flex items-center justify-center gap-1 sm:gap-1.5 border-b-2 transition-all px-1",
             activeTab === 'planned'
               ? "border-primary text-primary font-black"
               : "border-transparent text-on-surface-variant hover:text-on-surface"
           )}
         >
-          <PieChart size={15} className="shrink-0" />
-          <span className="sm:hidden">固定旅費</span>
-          <span className="hidden sm:inline">三大固定旅費試算</span>
+          <PieChart size={14} className="shrink-0" />
+          <span className="truncate">固定旅費</span>
         </button>
         <button
           onClick={() => setActiveTab('ledger')}
           className={cn(
-            "py-2.5 sm:py-3 text-[14px] sm:text-sm font-bold flex items-center justify-center gap-1 sm:gap-1.5 border-b-2 transition-all whitespace-nowrap",
+            "py-2.5 sm:py-3 text-[12px] sm:text-sm font-bold flex items-center justify-center gap-1 sm:gap-1.5 border-b-2 transition-all px-1",
             activeTab === 'ledger'
               ? "border-primary text-primary font-black"
               : "border-transparent text-on-surface-variant hover:text-on-surface"
           )}
         >
-          <Wallet size={15} className="shrink-0" />
-          <span className="sm:hidden">共同記帳 ({transactions.length})</span>
-          <span className="hidden sm:inline">即時共同記帳 ({transactions.length})</span>
+          <Wallet size={14} className="shrink-0" />
+          <span className="truncate">共同記帳</span>
         </button>
         <button
           onClick={() => setActiveTab('settlement')}
           className={cn(
-            "py-2.5 sm:py-3 text-[14px] sm:text-sm font-bold flex items-center justify-center gap-1 sm:gap-1.5 border-b-2 transition-all whitespace-nowrap",
+            "py-2.5 sm:py-3 text-[12px] sm:text-sm font-bold flex items-center justify-center gap-1 sm:gap-1.5 border-b-2 transition-all px-1",
             activeTab === 'settlement'
               ? "border-primary text-primary font-black"
               : "border-transparent text-on-surface-variant hover:text-on-surface"
           )}
         >
-          <Users size={15} className="shrink-0" />
-          <span className="sm:hidden">代墊結算</span>
-          <span className="hidden sm:inline">代墊平帳與結算</span>
+          <Users size={14} className="shrink-0" />
+          <span className="truncate">代墊結算</span>
         </button>
       </div>
 
@@ -751,101 +758,59 @@ export function Budget() {
       {/* TAB 1: PLANNED FIXED BUDGET (ACCOMMODATION + TRANSPORT + FLIGHTS + TICKETS) */}
       {/* ========================================================================= */}
       {activeTab === 'planned' && (
-        <div className="space-y-6">
-          {/* ★ 手冊總預算 17,501.51 歐元對照專區 (包含 112 人天每日預算 5,040 歐元) */}
-          <div className="bg-gradient-to-br from-amber-50 via-surface-container-lowest to-blue-50 dark:from-amber-950/20 dark:via-surface-container-lowest dark:to-blue-950/20 rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-amber-300/60 dark:border-amber-700/40 shadow-xs space-y-4">
-            <div className="flex items-center justify-between flex-wrap gap-2.5">
-              <div className="flex items-center gap-2">
-                <span className="px-2.5 py-1 rounded-lg bg-amber-600 text-white font-black text-xs font-mono shadow-xs">
-                  官方手冊對照
-                </span>
-                <div>
-                  <h3 className="font-black text-base sm:text-lg text-on-surface leading-snug">
-                    手冊總預算 17,501.51 歐元對照
-                  </h3>
-                  <p className="text-[11px] text-slate-500 font-medium">
-                    含固定已購支出 €12,461.51 ＋ 112 人天每日預算 €5,040.00
-                  </p>
-                </div>
+        <div className="space-y-5 sm:space-y-6 w-full">
+          {/* 三大固定旅費總覽 (住宿 / 交通 / 每日預算) */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 w-full">
+            {/* ① 住宿逐筆 */}
+            <div className="p-3.5 rounded-2xl bg-teal-50/70 border border-teal-200 space-y-1 shadow-xs w-full">
+              <div className="text-xs font-black text-teal-900 flex items-center justify-between">
+                <span>🏨 住宿 (12 處)</span>
+                <span className="font-mono text-[10px] bg-teal-100 px-1.5 py-0.5 rounded text-teal-900 font-bold">25 晚</span>
               </div>
-              <div className="text-right">
-                <div className="text-2xl sm:text-3xl font-black text-amber-700 dark:text-amber-400 font-mono leading-none">
-                  €17,501.51
-                </div>
-                <div className="text-[11px] text-slate-500 font-mono font-bold mt-1">
-                  手冊基準約 NT$ 637,029 (@ 36.3985)
-                </div>
+              <div className="text-xl sm:text-2xl font-black font-mono text-stone-900">
+                €8,659.44
+              </div>
+              <div className="text-[11px] text-stone-600 font-medium leading-snug break-words">
+                義大利 3人 €2,897.64 ＋ 克國 5人 €5,761.80
               </div>
             </div>
 
-            {/* 核心架構三欄卡片 */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
-              {/* ① 住宿逐筆 */}
-              <div className="p-3.5 rounded-xl bg-white dark:bg-surface-container-low border border-teal-200 dark:border-teal-900/50 space-y-1">
-                <div className="text-[11px] font-bold text-teal-800 dark:text-teal-300 flex items-center justify-between">
-                  <span>🏨 住宿 (12 處)</span>
-                  <span className="font-mono text-[10px] bg-teal-50 dark:bg-teal-950 px-1.5 py-0.5 rounded text-teal-700">25 晚</span>
-                </div>
-                <div className="text-lg font-black font-mono text-on-surface">
-                  €8,659.44
-                </div>
-                <div className="text-[10px] text-slate-500 leading-tight">
-                  義大利 3人 €2,897.64 ＋ 克國 5人 €5,761.80
-                </div>
+            {/* ② 租車交通門票 */}
+            <div className="p-3.5 rounded-2xl bg-sky-50/70 border border-sky-200 space-y-1 shadow-xs w-full">
+              <div className="text-xs font-black text-sky-900 flex items-center justify-between">
+                <span>🚗 交通/航班/門票 (7 筆)</span>
+                <span className="font-mono text-[10px] bg-sky-100 px-1.5 py-0.5 rounded text-sky-900 font-bold">Table II</span>
               </div>
-
-              {/* ② 租車交通門票 */}
-              <div className="p-3.5 rounded-xl bg-white dark:bg-surface-container-low border border-blue-200 dark:border-blue-900/50 space-y-1">
-                <div className="text-[11px] font-bold text-blue-800 dark:text-blue-300 flex items-center justify-between">
-                  <span>🚗 交通/航班/門票 (7 筆)</span>
-                  <span className="font-mono text-[10px] bg-blue-50 dark:bg-blue-950 px-1.5 py-0.5 rounded text-blue-700">Table II</span>
-                </div>
-                <div className="text-lg font-black font-mono text-on-surface">
-                  €3,802.07
-                </div>
-                <div className="text-[10px] text-slate-500 leading-tight">
-                  租車 3段 + FlixBus + 瑞安機票 €659.15 + 門票 €265
-                </div>
+              <div className="text-xl sm:text-2xl font-black font-mono text-stone-900">
+                €3,802.07
               </div>
-
-              {/* ③ 每日預算 */}
-              <div className="p-3.5 rounded-xl bg-white dark:bg-surface-container-low border border-amber-200 dark:border-amber-900/50 space-y-1">
-                <div className="text-[11px] font-bold text-amber-800 dark:text-amber-300 flex items-center justify-between">
-                  <span>🍽️ 每日預算 (112 人天)</span>
-                  <span className="font-mono text-[10px] bg-amber-50 dark:bg-amber-950 px-1.5 py-0.5 rounded text-amber-700">€45 /人天</span>
-                </div>
-                <div className="text-lg font-black font-mono text-on-surface">
-                  €5,040.00
-                </div>
-                <div className="text-[10px] text-slate-500 leading-tight">
-                  餐費 (112人天×€30=€3,360) ＋ 雜支 (€15=€1,680)
-                </div>
+              <div className="text-[11px] text-stone-600 font-medium leading-snug break-words">
+                租車 3段 + FlixBus + 瑞安機票 €659.15 + 門票 €265
               </div>
             </div>
 
-            {/* 人天計算公式詳細展開 */}
-            <div className="text-xs bg-surface-container-lowest/80 dark:bg-surface-container-low/40 p-3 rounded-xl border border-outline-variant/10 space-y-1.5 text-slate-600 dark:text-slate-300">
-              <div className="font-mono text-[11px] flex flex-wrap items-center gap-x-2">
-                <span className="font-bold text-slate-800 dark:text-slate-100">📌 112 人天計算方式：</span>
-                <span>義大利段 (3人 × 9天 = 27人天) ＋ 克羅埃西亞段 (5人 × 17天 = 85人天) ＝ <strong>112 人天</strong></span>
+            {/* ③ 每日預算 */}
+            <div className="p-3.5 rounded-2xl bg-amber-50/70 border border-amber-200 space-y-1 shadow-xs w-full">
+              <div className="text-xs font-black text-amber-900 flex items-center justify-between">
+                <span>🍽️ 每日預算 (112 人天)</span>
+                <span className="font-mono text-[10px] bg-amber-100 px-1.5 py-0.5 rounded text-amber-900 font-bold">€45 /人天</span>
               </div>
-              <div className="font-mono text-[11px] flex flex-wrap items-center gap-x-2">
-                <span className="font-bold text-slate-800 dark:text-slate-100">💰 總額核算算式：</span>
-                <span>固定已購支出 <strong>€12,461.51</strong>（住宿 €8,659.44 ＋ 交通門票 €3,802.07）＋ 每日公積預算 <strong>€5,040.00</strong> ＝ <strong className="text-primary font-black">€17,501.51</strong></span>
+              <div className="text-xl sm:text-2xl font-black font-mono text-stone-900">
+                €5,040.00
               </div>
-              <div className="text-[10px] text-slate-400 pt-0.5">
-                * 每日預算（餐費與雜支）可在旅途中隨時透過下方「即時記帳」登記實際支出，由公積金或刷卡代墊自動分攤核銷。
+              <div className="text-[11px] text-stone-600 font-medium leading-snug break-words">
+                餐費 (112人天×€30=€3,360) ＋ 雜支 (€15=€1,680)
               </div>
             </div>
           </div>
 
           {/* ① 頂部固定支出卡片 */}
-          <div className="bg-surface-container-lowest rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-outline-variant/15 shadow-xs space-y-4">
+          <div className="bg-surface-container-lowest rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-outline-variant/15 shadow-xs space-y-4 w-full">
             <div className="space-y-1">
-              <span className="text-[12px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider block font-mono">
+              <span className="text-[11px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider block font-mono">
                 行程預估固定總支出 (住宿 ＋ 交通 ＋ 航班 ＋ 門票)
               </span>
-              <div className="text-[24px] sm:text-3xl font-black text-on-surface tracking-tight font-mono leading-tight pt-0.5">
+              <div className="text-2xl sm:text-3xl font-black text-on-surface tracking-tight font-mono leading-tight pt-0.5 break-words">
                 {formatDualMoney(plannedStats.grandTotalEur, plannedStats.grandTotalUsd)}
               </div>
               <div className="text-xs text-slate-500 font-medium pt-1 flex flex-wrap items-center gap-2">
@@ -866,28 +831,28 @@ export function Budget() {
               </button>
             </div>
 
-            {/* ② 住宿／交通／航班／門票摘要：淡色背景＋深色文字＋分類色標題 (嚴格符合 CSS 規則) */}
-            <div className="space-y-2.5 pt-2 border-t border-outline-variant/10">
+            {/* ② 住宿／交通／航班／門票摘要 */}
+            <div className="space-y-2.5 pt-2 border-t border-outline-variant/10 w-full">
               {/* 🏨 住宿 */}
               <div 
-                className="grid grid-cols-[1fr_auto] items-center gap-3 p-3.5 rounded-xl"
+                className="grid grid-cols-[1fr_auto] items-center gap-2 sm:gap-3 p-3 sm:p-3.5 rounded-xl w-full"
                 style={{
                   backgroundColor: '#E8F7F3',
                   border: '1px solid #A8DDD3',
                 }}
               >
-                <div className="min-w-0">
+                <div className="min-w-0 pr-1">
                   <div className="flex items-center gap-1.5" style={{ color: '#087F73' }}>
-                    <span className="text-base">🏨</span>
-                    <span className="text-sm font-extrabold">住宿 (12 處)</span>
+                    <span className="text-base shrink-0">🏨</span>
+                    <span className="text-xs sm:text-sm font-extrabold truncate">住宿 (12 處)</span>
                   </div>
-                  <div className="text-[11px] font-medium pl-6 mt-0.5" style={{ color: '#536273' }}>
+                  <div className="text-[11px] font-medium pl-6 mt-0.5 break-words leading-tight" style={{ color: '#536273' }}>
                     12 處住宿 · 25 晚 (含多洛米蒂、盧比安納、十六湖、杜城等)
                   </div>
                 </div>
-                <div className="text-right">
+                <div className="text-right shrink-0">
                   <div 
-                    className="text-base sm:text-lg font-extrabold font-mono whitespace-nowrap"
+                    className="text-sm sm:text-lg font-extrabold font-mono whitespace-nowrap"
                     style={{ color: '#17212B', opacity: 1 }}
                   >
                     {formatDualMoney(plannedStats.stayEur, plannedStats.stayUsd)}
@@ -897,24 +862,24 @@ export function Budget() {
 
               {/* 🚗 交通 */}
               <div 
-                className="grid grid-cols-[1fr_auto] items-center gap-3 p-3.5 rounded-xl"
+                className="grid grid-cols-[1fr_auto] items-center gap-2 sm:gap-3 p-3 sm:p-3.5 rounded-xl w-full"
                 style={{
                   backgroundColor: '#EDF4FC',
                   border: '1px solid #BED3EA',
                 }}
               >
-                <div className="min-w-0">
+                <div className="min-w-0 pr-1">
                   <div className="flex items-center gap-1.5" style={{ color: '#17699A' }}>
-                    <span className="text-base">🚗</span>
-                    <span className="text-sm font-extrabold">交通租車 (4 筆)</span>
+                    <span className="text-base shrink-0">🚗</span>
+                    <span className="text-xs sm:text-sm font-extrabold truncate">交通租車 (4 筆)</span>
                   </div>
-                  <div className="text-[11px] font-medium pl-6 mt-0.5" style={{ color: '#536273' }}>
+                  <div className="text-[11px] font-medium pl-6 mt-0.5 break-words leading-tight" style={{ color: '#536273' }}>
                     Hertz義大利(€883.37) + FlixBus(€62.13) + UNI RENT(€1,596) + Hertz米蘭(€336.42)
                   </div>
                 </div>
-                <div className="text-right">
+                <div className="text-right shrink-0">
                   <div 
-                    className="text-base sm:text-lg font-extrabold font-mono whitespace-nowrap"
+                    className="text-sm sm:text-lg font-extrabold font-mono whitespace-nowrap"
                     style={{ color: '#17212B', opacity: 1 }}
                   >
                     {formatMoney(plannedStats.transitEur)}
@@ -924,24 +889,24 @@ export function Budget() {
 
               {/* ✈️ 跨國航班 */}
               <div 
-                className="grid grid-cols-[1fr_auto] items-center gap-3 p-3.5 rounded-xl"
+                className="grid grid-cols-[1fr_auto] items-center gap-2 sm:gap-3 p-3 sm:p-3.5 rounded-xl w-full"
                 style={{
                   backgroundColor: '#F3F0FB',
                   border: '1px solid #D2C8E9',
                 }}
               >
-                <div className="min-w-0">
+                <div className="min-w-0 pr-1">
                   <div className="flex items-center gap-1.5" style={{ color: '#5D55A5' }}>
-                    <span className="text-base">✈️</span>
-                    <span className="text-sm font-extrabold">跨國航班 (1 筆)</span>
+                    <span className="text-base shrink-0">✈️</span>
+                    <span className="text-xs sm:text-sm font-extrabold truncate">跨國航班 (1 筆)</span>
                   </div>
-                  <div className="text-[11px] font-medium pl-6 mt-0.5" style={{ color: '#536273' }}>
+                  <div className="text-[11px] font-medium pl-6 mt-0.5 break-words leading-tight" style={{ color: '#536273' }}>
                     Ryanair FR5935 · DBV ➜ BGY (5人全含 20kg 托運行李)
                   </div>
                 </div>
-                <div className="text-right">
+                <div className="text-right shrink-0">
                   <div 
-                    className="text-base sm:text-lg font-extrabold font-mono whitespace-nowrap"
+                    className="text-sm sm:text-lg font-extrabold font-mono whitespace-nowrap"
                     style={{ color: '#17212B', opacity: 1 }}
                   >
                     {formatMoney(plannedStats.flightEur)}
@@ -951,24 +916,24 @@ export function Budget() {
 
               {/* 🎫 門票票券 */}
               <div 
-                className="grid grid-cols-[1fr_auto] items-center gap-3 p-3.5 rounded-xl"
+                className="grid grid-cols-[1fr_auto] items-center gap-2 sm:gap-3 p-3 sm:p-3.5 rounded-xl w-full"
                 style={{
                   backgroundColor: '#FAF5FF',
                   border: '1px solid #E9D5FF',
                 }}
               >
-                <div className="min-w-0">
+                <div className="min-w-0 pr-1">
                   <div className="flex items-center gap-1.5" style={{ color: '#7E22CE' }}>
-                    <span className="text-base">🎫</span>
-                    <span className="text-sm font-extrabold">門票票券 (2 筆)</span>
+                    <span className="text-base shrink-0">🎫</span>
+                    <span className="text-xs sm:text-sm font-extrabold truncate">門票票券 (2 筆)</span>
                   </div>
-                  <div className="text-[11px] font-medium pl-6 mt-0.5" style={{ color: '#536273' }}>
+                  <div className="text-[11px] font-medium pl-6 mt-0.5 break-words leading-tight" style={{ color: '#536273' }}>
                     十六湖國家公園 Entrance 2 (€115/5人) ＋ 杜布羅夫尼克三日卡 (€150/3人)
                   </div>
                 </div>
-                <div className="text-right">
+                <div className="text-right shrink-0">
                   <div 
-                    className="text-base sm:text-lg font-extrabold font-mono whitespace-nowrap"
+                    className="text-sm sm:text-lg font-extrabold font-mono whitespace-nowrap"
                     style={{ color: '#17212B', opacity: 1 }}
                   >
                     {formatMoney(plannedStats.ticketEur)}
@@ -979,9 +944,9 @@ export function Budget() {
           </div>
 
           {/* ③ 每人分攤標題 */}
-          <div className="space-y-3 pt-1">
+          <div className="space-y-3 pt-1 w-full">
             <div className="space-y-0.5">
-              <h2 className="text-2xl font-black text-on-surface tracking-tight">
+              <h2 className="text-xl sm:text-2xl font-black text-on-surface tracking-tight">
                 每人分攤
               </h2>
               <p className="text-xs sm:text-sm text-slate-500 font-medium">
@@ -993,8 +958,8 @@ export function Budget() {
               </div>
             </div>
 
-            {/* ④ & ⑤ & ⑥ 成員卡片 (上下分層結構，徹底解決手機版擠壓與直排跑版) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {/* ④ & ⑤ & ⑥ 成員卡片 */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 w-full">
               {ALL_MEMBERS.map(m => {
                 const data = plannedStats.memberBreakdown[m];
                 const isExpanded = expandedMember === m;
@@ -1003,7 +968,7 @@ export function Budget() {
                 return (
                   <div 
                     key={m}
-                    className="w-full min-w-0 bg-surface-container-lowest rounded-2xl border border-outline-variant/15 p-4 sm:p-5 shadow-xs hover:border-primary/40 transition-all select-none"
+                    className="w-full min-w-0 bg-white rounded-2xl border border-stone-200 p-4 sm:p-5 shadow-xs hover:border-primary/50 transition-all select-none box-border overflow-hidden"
                   >
                     {/* 卡片頂部可點擊區域 */}
                     <div 
@@ -1012,37 +977,37 @@ export function Budget() {
                     >
                       {/* 【第一列】姓名 ＋ 展開箭頭 */}
                       <div className="flex items-center justify-between w-full">
-                        <h3 
-                          className="font-bold text-2xl text-on-surface whitespace-nowrap"
-                          style={{ wordBreak: 'keep-all', whiteSpace: 'nowrap' }}
-                        >
-                          {m}
-                        </h3>
-                        <div className="text-slate-400 p-1 flex items-center justify-center shrink-0">
+                        <div className="flex items-center gap-2">
+                          <h3 className="font-extrabold text-xl sm:text-2xl text-stone-900">
+                            {m}
+                          </h3>
+                          <span className={cn(
+                            "text-[10px] font-bold px-2 py-0.5 rounded-full border",
+                            isItalyGroup ? "bg-amber-100 text-amber-900 border-amber-200" : "bg-emerald-100 text-emerald-900 border-emerald-200"
+                          )}>
+                            {isItalyGroup ? '義大利+克國' : '克國5人'}
+                          </span>
+                        </div>
+                        <div className="text-stone-500 p-1 flex items-center justify-center shrink-0">
                           {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                         </div>
                       </div>
 
                       {/* 【第二列】分攤說明 */}
-                      <div 
-                        className="block w-full text-[15px] leading-relaxed text-slate-500 font-medium mt-1.5"
-                        style={{ wordBreak: 'keep-all', overflowWrap: 'normal', whiteSpace: 'normal' }}
-                      >
-                        {isItalyGroup ? '義大利＋克國' : '克國'} · {data.items.length}筆費用
+                      <div className="block w-full text-xs text-stone-600 font-medium mt-1 leading-normal break-words">
+                        共 {data.items.length} 筆預訂費用 · 點擊查看明細
                       </div>
 
                       {/* 【第三列】金額 */}
-                      <div className="block w-full mt-4">
-                        <div 
-                          className="text-2xl font-bold text-primary font-mono tracking-tight leading-snug flex flex-wrap items-baseline gap-x-1.5"
-                          style={{ wordBreak: 'keep-all' }}
-                        >
+                      <div className="block w-full mt-2.5 pt-2.5 border-t border-stone-100">
+                        <div className="text-[11px] text-stone-500 font-semibold mb-0.5">個人應分攤總額</div>
+                        <div className="text-xl sm:text-2xl font-black text-primary font-mono tracking-tight leading-snug flex flex-wrap items-baseline gap-x-1.5 break-words">
                           {currency === 'TWD' ? (
                             <span>{formatDualMoney(data.totalEur, data.totalUsd)}</span>
                           ) : data.totalUsd > 0 && data.totalEur > 0 ? (
                             <>
                               <span className="whitespace-nowrap">€{data.totalEur.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-                              <span className="text-primary/75 font-semibold text-lg">+</span>
+                              <span className="text-primary font-semibold text-base">+</span>
                               <span className="whitespace-nowrap">US${data.totalUsd.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                             </>
                           ) : data.totalUsd > 0 ? (
@@ -1057,40 +1022,47 @@ export function Budget() {
                     {/* 點擊展開後顯示計算分段與明細清單 */}
                     {isExpanded && (
                       <div 
-                        className="space-y-3 pt-3.5 mt-3.5 border-t border-outline-variant/10 cursor-default animate-in fade-in"
+                        className="space-y-3 pt-3.5 mt-3.5 border-t border-stone-200 cursor-default animate-in fade-in w-full min-w-0"
                         onClick={(e) => e.stopPropagation()}
                       >
-                        <div className="grid grid-cols-2 gap-2 text-xs font-mono">
+                        <div className="grid grid-cols-2 gap-2 text-xs font-mono w-full">
                           {isItalyGroup ? (
                             <>
-                              <div className="bg-amber-50/60 dark:bg-amber-950/20 p-2.5 rounded-xl border border-amber-200/50">
-                                <span className="text-amber-900 dark:text-amber-300 font-bold block text-[11px]">🇮🇹 義大利段 (3人)</span>
-                                <strong className="text-on-surface font-black text-sm block mt-0.5">{formatMoney(data.italyEur)}</strong>
+                              <div className="bg-amber-100/90 p-2.5 rounded-xl border border-amber-300 min-w-0">
+                                <span className="text-amber-950 font-black block text-[11px]">🇮🇹 義大利 (3人)</span>
+                                <strong className="text-stone-900 font-black text-xs sm:text-sm block mt-0.5 truncate">{formatMoney(data.italyEur)}</strong>
                               </div>
-                              <div className="bg-emerald-50/60 dark:bg-emerald-950/20 p-2.5 rounded-xl border border-emerald-200/50">
-                                <span className="text-emerald-900 dark:text-emerald-300 font-bold block text-[11px]">🇭🇷 克國段 (5人)</span>
-                                <strong className="text-on-surface font-black text-sm block mt-0.5">{formatDualMoney(data.croatiaEur, data.croatiaUsd)}</strong>
+                              <div className="bg-emerald-100/90 p-2.5 rounded-xl border border-emerald-300 min-w-0">
+                                <span className="text-emerald-950 font-black block text-[11px]">🇭🇷 克國段 (5人)</span>
+                                <strong className="text-stone-900 font-black text-xs sm:text-sm block mt-0.5 truncate">{formatDualMoney(data.croatiaEur, data.croatiaUsd)}</strong>
                               </div>
                             </>
                           ) : (
-                            <div className="col-span-2 bg-emerald-50/60 dark:bg-emerald-950/20 p-2.5 rounded-xl border border-emerald-200/50">
-                              <span className="text-emerald-900 dark:text-emerald-300 font-bold block text-[11px]">🇭🇷 克國段＋航班 (5人)</span>
-                              <strong className="text-on-surface font-black text-sm block mt-0.5">{formatDualMoney(data.totalEur, data.totalUsd)}</strong>
+                            <div className="col-span-2 bg-emerald-100/90 p-2.5 rounded-xl border border-emerald-300 min-w-0">
+                              <span className="text-emerald-950 font-black block text-[11px]">🇭🇷 克國段＋航班 (5人)</span>
+                              <strong className="text-stone-900 font-black text-xs sm:text-sm block mt-0.5 truncate">{formatDualMoney(data.totalEur, data.totalUsd)}</strong>
                             </div>
                           )}
                         </div>
 
-                        <div className="pt-2 border-t border-outline-variant/10">
-                          <div className="text-xs font-bold text-slate-600 mb-2">
+                        <div className="pt-2 border-t border-stone-200 w-full min-w-0">
+                          <div className="text-xs font-black text-stone-800 mb-2">
                             應分攤項目：{data.items.length} 筆
                           </div>
 
-                          <div className="space-y-1.5 max-h-60 overflow-y-auto pr-1">
+                          <div className="space-y-1.5 max-h-64 overflow-y-auto pr-0.5 w-full">
                             {data.items.map((it, idx) => (
-                              <div key={idx} className="flex items-center justify-between py-1.5 px-2 rounded-lg bg-surface-container-low/60 text-xs">
-                                <span className="text-on-surface truncate pr-2 font-medium">{it.title}</span>
-                                <span className="font-mono font-bold text-primary shrink-0 whitespace-nowrap">
-                                  {it.currency === 'USD' ? `US$${it.shareAmount.toFixed(2)}` : `€${it.shareAmount.toFixed(2)}`}
+                              <div 
+                                key={idx} 
+                                className="flex items-start justify-between gap-2.5 py-2 px-2.5 rounded-xl bg-stone-50 border border-stone-200 text-xs w-full min-w-0 box-border"
+                              >
+                                <div className="flex-1 min-w-0">
+                                  <span className="text-stone-900 font-bold leading-snug break-words block text-[12px]">
+                                    {it.title}
+                                  </span>
+                                </div>
+                                <span className="font-mono font-black text-primary shrink-0 whitespace-nowrap text-right pt-0.5 text-xs">
+                                  {it.currency === 'USD' ? `US$ ${it.shareAmount.toFixed(2)}` : `€ ${it.shareAmount.toFixed(2)}`}
                                 </span>
                               </div>
                             ))}
@@ -1137,16 +1109,16 @@ export function Budget() {
                     className="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/15 shadow-xs space-y-2.5 hover:border-primary/30 transition-all"
                   >
                     {/* 頂部標題與日期 */}
-                    <div className="flex items-start justify-between gap-2">
-                      <div className="min-w-0">
-                        <div className="flex items-center gap-1.5">
+                    <div className="flex items-start justify-between gap-2 w-full">
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-1.5 flex-wrap">
                           <span className={cn(
                             "text-[10px] font-black px-2 py-0.5 rounded-md shrink-0",
                             item.category === 'Stay' ? "bg-teal-100 text-teal-800" : "bg-blue-100 text-blue-800"
                           )}>
                             {item.category === 'Stay' ? '🏨 住宿' : '🚗 交通'}
                           </span>
-                          <h4 className="font-black text-sm text-on-surface truncate">{item.title}</h4>
+                          <h4 className="font-black text-sm text-on-surface break-words">{item.title}</h4>
                         </div>
                         <div className="text-[11px] text-slate-500 font-mono mt-1">
                           {item.datesText}
@@ -1155,12 +1127,12 @@ export function Budget() {
                     </div>
 
                     {/* 金額、分攤與記帳按鈕 */}
-                    <div className="flex items-center justify-between pt-1 border-t border-outline-variant/10">
-                      <div>
+                    <div className="flex items-center justify-between gap-2 pt-2 border-t border-outline-variant/10 w-full">
+                      <div className="min-w-0 flex-1">
                         <div className="text-base sm:text-lg font-black text-on-surface font-mono leading-none">
                           {formatMoney(item.rawAmount)}
                         </div>
-                        <div className="text-[11px] text-slate-500 font-medium mt-1">
+                        <div className="text-[11px] text-slate-500 font-medium mt-1 break-words">
                           義大利 3 人分攤 · <span className="text-primary font-bold font-mono">每人 {formatMoney(shareAmount)}</span>
                         </div>
                       </div>
@@ -1185,11 +1157,11 @@ export function Budget() {
                       </button>
 
                       {isItemExpanded && (
-                        <div className="mt-2 p-2.5 rounded-xl bg-slate-50 dark:bg-surface-container/40 text-[11px] text-slate-600 dark:text-slate-300 space-y-1 animate-in fade-in">
-                          <p className="font-medium text-slate-700 dark:text-slate-200">{item.notes}</p>
-                          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-slate-500 font-mono pt-1">
-                            <span>分攤名單: <strong>{item.splitMembers.join('、')}</strong></span>
-                            <span>預設付款人: <strong>{item.payerDefault}</strong></span>
+                        <div className="mt-2 p-2.5 rounded-xl bg-stone-100 border border-stone-200 text-xs text-stone-800 space-y-1 animate-in fade-in">
+                          <p className="font-bold text-stone-900">{item.notes}</p>
+                          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-stone-600 font-mono pt-1 text-[11px]">
+                            <span>分攤名單: <strong className="text-stone-900">{item.splitMembers.join('、')}</strong></span>
+                            <span>預設付款人: <strong className="text-stone-900">{item.payerDefault}</strong></span>
                           </div>
                         </div>
                       )}
@@ -1233,9 +1205,9 @@ export function Budget() {
                     className="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/15 shadow-xs space-y-2.5 hover:border-primary/30 transition-all"
                   >
                     {/* 頂部標題與日期 */}
-                    <div className="flex items-start justify-between gap-2">
-                      <div className="min-w-0">
-                        <div className="flex items-center gap-1.5">
+                    <div className="flex items-start justify-between gap-2 w-full">
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-1.5 flex-wrap">
                           <span className={cn(
                             "text-[10px] font-black px-2 py-0.5 rounded-md shrink-0",
                             item.category === 'Stay' ? "bg-teal-100 text-teal-800" :
@@ -1244,7 +1216,7 @@ export function Budget() {
                           )}>
                             {item.category === 'Stay' ? '🏨 住宿' : item.category === 'Transit' ? '🚗 交通' : item.category === 'Flight' ? '✈️ 航班' : '🎫 門票'}
                           </span>
-                          <h4 className="font-black text-sm text-on-surface truncate">{item.title}</h4>
+                          <h4 className="font-black text-sm text-on-surface break-words">{item.title}</h4>
                         </div>
                         <div className="text-[11px] text-slate-500 font-mono mt-1">
                           {item.datesText}
@@ -1253,12 +1225,12 @@ export function Budget() {
                     </div>
 
                     {/* 金額、分攤與記帳按鈕 */}
-                    <div className="flex items-center justify-between pt-1 border-t border-outline-variant/10">
-                      <div>
+                    <div className="flex items-center justify-between gap-2 pt-2 border-t border-outline-variant/10 w-full">
+                      <div className="min-w-0 flex-1">
                         <div className="text-base sm:text-lg font-black text-on-surface font-mono leading-none">
                           {item.currency === 'USD' ? `US$ ${item.rawAmount.toFixed(2)}` : formatMoney(item.rawAmount)}
                         </div>
-                        <div className="text-[11px] text-slate-500 font-medium mt-1">
+                        <div className="text-[11px] text-slate-500 font-medium mt-1 break-words">
                           5 人分攤 · <span className="text-primary font-bold font-mono">每人 {item.currency === 'USD' ? `US$ ${shareAmount.toFixed(2)}` : formatMoney(shareAmount)}</span>
                         </div>
                       </div>
@@ -1283,11 +1255,11 @@ export function Budget() {
                       </button>
 
                       {isItemExpanded && (
-                        <div className="mt-2 p-2.5 rounded-xl bg-slate-50 dark:bg-surface-container/40 text-[11px] text-slate-600 dark:text-slate-300 space-y-1 animate-in fade-in">
-                          <p className="font-medium text-slate-700 dark:text-slate-200">{item.notes}</p>
-                          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-slate-500 font-mono pt-1">
-                            <span>分攤名單: <strong>全員 5 位</strong></span>
-                            <span>預設付款人: <strong>{item.payerDefault}</strong></span>
+                        <div className="mt-2 p-2.5 rounded-xl bg-stone-100 border border-stone-200 text-xs text-stone-800 space-y-1 animate-in fade-in">
+                          <p className="font-bold text-stone-900">{item.notes}</p>
+                          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-stone-600 font-mono pt-1 text-[11px]">
+                            <span>分攤名單: <strong className="text-stone-900">全員 5 位</strong></span>
+                            <span>預設付款人: <strong className="text-stone-900">{item.payerDefault}</strong></span>
                           </div>
                         </div>
                       )}

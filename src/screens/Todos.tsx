@@ -28,10 +28,10 @@ interface TodoItem {
 const MEMBERS = ['小許', '春香', '麗安', '頭家娘', '小花', '全員'];
 
 const CATEGORIES = [
-  { label: '準備物品', value: 'Packing', color: 'bg-emerald-50 text-emerald-700 border-emerald-100 dark:bg-emerald-950/20 dark:text-emerald-400 dark:border-emerald-900/30' },
-  { label: '證件機票', value: 'Docs', color: 'bg-blue-50 text-blue-700 border-blue-100 dark:bg-blue-950/20 dark:text-blue-400 dark:border-blue-900/30' },
-  { label: '生活日常', value: 'Life', color: 'bg-amber-50 text-amber-700 border-amber-100 dark:bg-amber-950/20 dark:text-amber-400 dark:border-amber-900/30' },
-  { label: '其他雜項', value: 'Others', color: 'bg-gray-50 text-gray-700 border-gray-100 dark:bg-gray-800/50 dark:text-gray-400 dark:border-gray-700/50' },
+  { label: '準備物品', value: 'Packing', color: 'bg-emerald-50 text-emerald-800 border-emerald-200' },
+  { label: '證件機票', value: 'Docs', color: 'bg-blue-50 text-blue-800 border-blue-200' },
+  { label: '生活日常', value: 'Life', color: 'bg-amber-50 text-amber-900 border-amber-200' },
+  { label: '其他雜項', value: 'Others', color: 'bg-stone-100 text-stone-800 border-stone-200' },
 ];
 
 enum OperationType {
@@ -913,7 +913,7 @@ export function Todos() {
 
                         {/* Date tag */}
                         {todo.date && todo.date !== '無期限' && (
-                          <span className="text-[10px] font-bold text-[#b45309] bg-amber-50 px-2 py-0.5 rounded-full border border-amber-100 dark:bg-amber-950/20 dark:text-amber-400 dark:border-amber-900/30 inline-flex items-center gap-1">
+                          <span className="text-[10px] font-bold text-amber-900 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200 inline-flex items-center gap-1">
                             <Calendar size={9} />
                             {todo.date}
                           </span>

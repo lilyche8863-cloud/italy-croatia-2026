@@ -1026,7 +1026,16 @@ export const CROATIA_ITINERARY_DAYS: DayItinerary[] = [
         duration: '約 30 分鐘'
       },
       {
-        time: '13:30',
+        time: '13:15',
+        type: 'food',
+        title: '🍴 午餐：Buffet Fife / Konoba Marjan (達爾馬提亞傳統美味)',
+        badge: '在地人推薦家常酒館 · 必點黑墨魚燉飯',
+        description: '推薦：① Buffet Fife (Trg Franje Tuđmana 4, 營業 07:00–23:00)，靠近海濱長廊的超人氣在地餐館，份量十足、價格親民，必點黑墨魚燉飯、烤鮮魚與達爾馬提亞燉牛肉 (Pašticada)；② Konoba Marjan (Radmilovića 13)，溫馨小酒館，海鮮新鮮道地。',
+        address: 'Trg Franje Tuđmana 4 / Radmilovića 13, Split',
+        mapQuery: 'Buffet Fife Split'
+      },
+      {
+        time: '14:00',
         type: 'shopping',
         title: '🧺 Green Market (Pazar 傳統露天市集)',
         badge: '地道達爾馬提亞物產集散地',
@@ -1034,6 +1043,16 @@ export const CROATIA_ITINERARY_DAYS: DayItinerary[] = [
         duration: '約 45 分鐘',
         address: 'Ul. Stari pazar, 21000 Split',
         mapQuery: 'Green Market Split'
+      },
+      {
+        time: '14:45',
+        type: 'food',
+        title: '🍦 Luka Ice Cream & Cakes (Split 第一名手工冰淇淋)',
+        badge: '超人氣天然冰淇淋 · 每日手作',
+        description: '位於老城區巷弄內，斯普利特評價最高的手工冰淇淋店，主打天然無添加食材，開心果 (Pistachio)、薰衣草蜂蜜、黑巧克力與當季水果雪酪是必點招牌。',
+        address: 'Štafilićeva ul. 4, 21000 Split',
+        openingHours: '10:00–22:00',
+        mapQuery: 'Luka Ice Cream & Cakes Split'
       },
       {
         time: '14:30',
@@ -2001,6 +2020,14 @@ export const CROATIA_ITINERARY_DAYS: DayItinerary[] = [
     ],
     timeline: [
       {
+        time: '08:30',
+        type: 'food',
+        title: '🥐 早餐：Hotel Osteria della Pista 享用精緻義式早餐',
+        badge: '經典義大利早餐 · 熱卡布奇諾與可頌',
+        description: '飯店附贈美味早餐：新鮮烘焙可頌、帕瑪火腿、義式起司、優格、現煮濃縮咖啡與熱卡布奇諾，元氣滿滿準備返程。',
+        duration: '約 1 小時'
+      },
+      {
         time: '10:00',
         type: 'accommodation',
         title: '🏨 Hotel Osteria della Pista 退房出發前往 MXP 機場',
@@ -2027,7 +2054,15 @@ export const CROATIA_ITINERARY_DAYS: DayItinerary[] = [
         mapQuery: 'Aeroporto di Milano Malpensa Terminal 1'
       },
       {
-        time: '12:30',
+        time: '12:15',
+        type: 'food',
+        title: '☕ MXP T1 出境大廳／登機區義式輕食 (Briciole / Venchi 冰淇淋)',
+        badge: '現烤帕尼尼 · 義大利國寶巧克力冰淇淋',
+        description: '辦妥托運與安檢後，於 T1 候機區享受義大利最後美味：Briciole 現烤披薩與帕尼尼三明治，以及 Venchi 頂級義式冰淇淋 (Gelato) 與香醇 Espresso。',
+        duration: '約 45 分鐘'
+      },
+      {
+        time: '12:45',
         type: 'transport',
         title: '✈ 航空公司櫃檯托運行李 ＆ 登機安檢出境',
         badge: '行李托運 · 出境通關',

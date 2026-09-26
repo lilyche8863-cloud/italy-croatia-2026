@@ -1781,6 +1781,23 @@ const CROATIA_TWO_LAYER_DAYS: RawDayTwoLayer[] = CROATIA_ITINERARY_DAYS.map((d: 
     else alertItems.push(item);
   });
 
+  // 若當天為續住（timeline 中未列出新 accommodation 節點），自動為其補齊當日住宿卡片，確保「3. 住宿」區塊完整顯示
+  if (hotelItems.length === 0 && d.hotelName) {
+    hotelItems.push({
+      id: `d${d.dayNum}-stay-auto`,
+      category: 'hotel',
+      name: `續住：${d.hotelName}`,
+      shortInfo: d.hotelRoomType || '續住當日飯店 · 不換飯店免搬行李',
+      hasDetail: true,
+      detail: {
+        subtitle: d.hotelRoomType || d.hotelName,
+        address: d.hotelAddress,
+        notice: d.hotelNote || '續住不換房，免搬行李輕裝出發',
+        description: `${d.hotelName}（續住）。地址：${d.hotelAddress || ''}`
+      }
+    });
+  }
+
   const CITY_DISPLAY_MAP: Record<number, string> = {
     10: 'Bled',
     11: 'Motovun',
