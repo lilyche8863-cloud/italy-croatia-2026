@@ -44,16 +44,17 @@ export function Dashboard() {
   return (
     <div className="min-h-screen bg-[#faf8f5] pt-20 px-3.5 sm:px-4 pb-44 max-w-xl mx-auto space-y-4">
       {/* 頂部雜誌風標題 */}
-      <section className="px-1 flex items-center justify-between">
+      <section className="px-1 flex items-center justify-between gap-3">
         <div>
-          <span className="text-primary font-black text-xs uppercase tracking-widest block font-mono">
+          <span className="text-primary font-black text-xs uppercase tracking-widest block font-mono mb-0.5">
             2026 AUTUMN GRAND TOUR
           </span>
-          <h1 className="text-2xl sm:text-3xl font-black text-on-surface tracking-tight font-sans">
-            ITALY × CROATIA
+          <h1 className="text-2xl font-black text-on-surface tracking-tight font-sans leading-[1.15]">
+            <span className="block">ITALY ×</span>
+            <span className="block">CROATIA</span>
           </h1>
         </div>
-        <span className="text-[11px] font-mono font-bold bg-primary/10 text-primary px-2.5 py-1 rounded-full">
+        <span className="text-[11px] font-mono font-bold bg-primary/10 text-primary px-2.5 py-1 rounded-full shrink-0 whitespace-nowrap">
           9/27 - 10/24 (28天)
         </span>
       </section>
